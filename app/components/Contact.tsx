@@ -6,7 +6,7 @@ export default function Contact() {
           📞 Let&apos;s Build Something Amazing Together
         </h2>
         <p className="text-xl text-blue-100 mb-12">
-          Interested in DevOps solutions, cloud infrastructure, or AI-enhanced development? 
+          Interested in DevOps solutions, cloud infrastructure, or AI-powered software solutions? 
           Let&apos;s connect and discuss how we can optimize your software delivery processes.
         </p>
         <div className="grid md:grid-cols-3 gap-6 mb-12">

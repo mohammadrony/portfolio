@@ -1,11 +1,11 @@
 export default function Interests() {
   const interests = [
-    { text: "Contributing to open-source DevOps tools", icon: "🔧" },
-    { text: "Building Kubernetes lab environments", icon: "☸️" },
-    { text: "Cloud computing communities", icon: "☁️" },
-    { text: "Continuous learning & certifications", icon: "📖" },
-    { text: "Programming challenges (LeetCode, HackerRank)", icon: "💻" },
-    { text: "AI integrations in DevOps workflows", icon: "🤖" }
+    { text: "Open-source contributions", icon: "🌍" },
+    { text: "Building lab environments", icon: "☸️" },
+    { text: "Cloud computing", icon: "☁️" },
+    { text: "Continuous learning", icon: "📖" },
+    { text: "Programming challenges", icon: "💻" },
+    { text: "AI in technology", icon: "🤖" }
   ];
 
   return (
