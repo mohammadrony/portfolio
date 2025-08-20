@@ -20,10 +20,10 @@ export default function Hero() {
           Md. Asaduzzaman Rony
         </h1>
         <h2 className="text-3xl md:text-4xl font-semibold text-gray-600 dark:text-gray-400 mb-6">
-          DevOps Engineer
+          Software Engineer
         </h2>
         <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Building optimized software delivery processes and scalable applications with 2+ years of experience in cloud computing and infrastructure automation.
+          Building optimized software delivery processes and scalable applications with 2+ years of experience in software development, cloud computing, and infrastructure automation.
         </p>
 
         <div className="flex justify-center gap-4 mb-8">
