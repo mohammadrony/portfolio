@@ -2,9 +2,9 @@ export default function Skills() {
   const skills = {
     "Languages": ["Python", "Java", "JavaScript", "C++", "Bash"],
     "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Jenkins", "Argo", "Ansible"],
-    "Databases": ["MySQL", "PostgreSQL", "MongoDB", "Oracle", "Redis"],
-    "Monitoring": ["Prometheus", "Grafana", "OpenTelemetry"],
-    "Frameworks": ["Vue.js", "Node.js", "Flutter", "Bootstrap"]
+    "Databases": ["MySQL", "PostgreSQL", "MSSQL", "Oracle", "Redis", "MongoDB"],
+    "Monitoring": ["Prometheus", "Grafana", "OpenTelemetry", "ELK stack"],
+    "Frameworks": ["Vue.js", "Flutter", "React.js", "Node.js", "Bootstrap"]
   };
 
   return (
