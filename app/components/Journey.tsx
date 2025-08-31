@@ -2,10 +2,10 @@ export default function Journey() {
   const roadmapItems = [
     {
       key: "work",
-      title: "Current Role",
+      title: "Previous Role",
       subtitle: "Junior DevOps Engineer",
       institution: "Dynamic Solution Innovators Ltd.",
-      period: "Sep 2023 – Present",
+      period: "Sep 2023 – Aug 2025",
       details: "Full-stack development, Cloud deployment, Container orchestration, Database administration, CI/CD automation, Monitoring & observability",
       icon: "💼",
     },
