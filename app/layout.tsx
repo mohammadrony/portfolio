@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico"
   },
+  metadataBase: new URL('https://mohammadrony.com'),
 };
 
 export default function RootLayout({
