@@ -25,6 +25,14 @@ export default function Projects() {
       type: "DevOps Practice",
       icon: "🚀",
       github: "https://github.com/mohammadrony/argo-practice"
+    },
+    {
+      title: "Ansible Playbook",
+      description: "Ansible playbook for installing Docker, Kubernetes, and Jenkins server components on Linux.",
+      tech: ["Ansible", "YAML", "Linux", "SSH"],
+      type: "Automation",
+      icon: "⚙️",
+      github: "https://github.com/mohammadrony/ansible-playbook"
     }
   ];
 
