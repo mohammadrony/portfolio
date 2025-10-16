@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Md. Asaduzzaman Rony",
-  description: "Portfolio of Md. Asaduzzaman Rony - DevOps Engineer",
+  title: "Md. Rony",
+  description: "Portfolio of Md. Rony - Software Engineer",
   icons: {
     icon: "/favicon.ico"
   },

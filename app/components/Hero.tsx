@@ -9,7 +9,7 @@ export default function Hero() {
           <div className="w-40 h-40 mx-auto mb-6 relative animate-float">
             <Image
               src="/image.png"
-              alt="Md. Asaduzzaman Rony"
+              alt="Md. Rony"
               fill
               className="rounded-full object-cover border-4 border-blue-500 shadow-2xl"
             />
@@ -17,10 +17,10 @@ export default function Hero() {
           </div>
         </div>
         <h1 className="text-5xl md:text-7xl font-bold text-slate-800 dark:text-white mb-6 gradient-text">
-          Md. Asaduzzaman Rony
+          Hi, I&apos;m Rony
         </h1>
         <h2 className="text-3xl md:text-4xl font-semibold text-gray-600 dark:text-gray-400 mb-6">
-          Software Developer
+          Software Engineer
         </h2>
         <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
            Bridging code, clouds, and creativity.
