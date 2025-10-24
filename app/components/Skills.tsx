@@ -3,7 +3,7 @@ export default function Skills() {
     "Languages": ["Python", "Java", "JavaScript", "C++", "Bash"],
     "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Argo", "Jenkins", "Terraform", "Ansible"],
     "Databases": ["MySQL", "PostgreSQL", "MSSQL", "Oracle", "Redis", "MongoDB"],
-    "Monitoring": ["Prometheus", "Grafana", "OpenTelemetry", "ELK stack"],
+    "Observability": ["Prometheus", "Grafana", "OpenTelemetry", "ELK stack"],
     "Frameworks": ["Vue.js", "Flutter", "React.js", "Node.js", "Bootstrap"]
   };
 
@@ -24,7 +24,7 @@ export default function Skills() {
                   {category === 'Languages' ? '💻' :
                    category === 'Cloud & DevOps' ? '☁️' :
                    category === 'Databases' ? '🗄️' :
-                   category === 'Monitoring' ? '📊' : '🛠️'}
+                   category === 'Observability' ? '📊' : '🛠️'}
                 </span>
                 {category}
               </h3>
