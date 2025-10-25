@@ -16,7 +16,9 @@ export const metadata: Metadata = {
   title: "Md. Rony",
   description: "Portfolio of Md. Rony - Software Engineer",
   icons: {
-    icon: "/favicon.ico"
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   metadataBase: new URL('https://mohammadrony.com'),
 };
