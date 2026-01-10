@@ -7,6 +7,7 @@ export default function Journey() {
       title: "Current Role",
       subtitle: "DevOps and QA Engineer",
       institution: "Dviz Technologies Inc.",
+      institutionLink: "https://dviz.tech/",
       period: "Nov 2025 – Present",
       details: "Infrastructure Management, Application Deployment, CI/CD Automation, QA Testing, Monitoring & Observability",
       icon: "💼",
@@ -16,6 +17,7 @@ export default function Journey() {
       title: "Previous Role",
       subtitle: "Junior DevOps Engineer",
       institution: "Dynamic Solution Innovators Ltd.",
+      institutionLink: "https://dsinnovators.com/",
       period: "Sep 2023 – Aug 2025",
       details: "Full-stack Development, Cloud Deployment, Container Orchestration, Database Administration, CI/CD Automation, Monitoring & Observability",
       icon: "💼",
@@ -25,6 +27,7 @@ export default function Journey() {
       title: "Training",
       subtitle: "Trainee DevOps and Cloud Engineer",
       institution: "BJIT Academy Ltd.",
+      institutionLink: "https://bjitacademy.com/",
       period: "Apr 2023 - Jul 2023",
       details: "Cloud Computing with AWS Services, Docker & Kubernetes Containerization, CI/CD pipelines with Jenkins & GitLab, Ansible Automation",
       icon: "📚",
@@ -34,6 +37,7 @@ export default function Journey() {
       title: "Education",
       subtitle: "B.Sc. in Computer Science and Engineering",
       institution: "Khulna University",
+      institutionLink: "https://ku.ac.bd/",
       period: "Jan 2018 – Feb 2023",
       details: "Coursework: Data Structures, Algorithms, Database Systems, Operating Systems, Computer Networks, Software Engineering, AI, ML",
       icon: "🎓",
@@ -71,7 +75,9 @@ export default function Journey() {
                           <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm sm:text-base">{item.subtitle}</p>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg font-semibold text-purple-600 dark:text-purple-400 mb-2 text-center md:text-left">{item.institution}</p>
+                      <a href={item.institutionLink} target="_blank" rel="noopener noreferrer">
+                        <p className="text-base sm:text-lg font-semibold text-purple-600 dark:text-purple-400 mb-2 text-center md:text-left">{item.institution}</p>
+                      </a>
                       <p className="text-slate-600 dark:text-slate-300 font-medium mb-3 text-center md:text-left text-sm sm:text-base">{item.period}</p>
                       <p className="text-slate-700 dark:text-slate-300 text-center md:text-left text-sm sm:text-base">{item.details}</p>
                     </div>
