@@ -17,7 +17,7 @@ export default function Hero() {
         >
           <div className="w-40 h-40 mx-auto mb-6 relative animate-float">
             <Image
-              src="/image.png"
+              src="/image.jpeg"
               alt="Md. Rony"
               fill
               className="rounded-full object-cover border-4 border-blue-500 shadow-2xl"

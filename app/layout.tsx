@@ -24,6 +24,20 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://mohammadrony.com'),
 };
 
+const faviconScript = `
+  (function() {
+    const updateFavicon = (m) => {
+      const icon = document.querySelector("link[rel='icon']") || document.createElement('link');
+      icon.rel = 'icon';
+      icon.href = m.matches ? '/favicon-black.png' : '/favicon-white.png';
+      if (!icon.parentNode) document.head.appendChild(icon);
+    };
+    const m = window.matchMedia('(prefers-color-scheme: dark)');
+    m.addEventListener('change', updateFavicon);
+    updateFavicon(m);
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,6 +48,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script dangerouslySetInnerHTML={{ __html: faviconScript }} />
         {children}
       </body>
     </html>
