@@ -54,7 +54,7 @@ export default function Journey() {
         </ScrollReveal>
 
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full hidden md:block"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-blue-500 to-purple-600 rounded-full hidden md:block"></div>
           <div className="space-y-3 sm:space-y-4">
             {roadmapItems.map((item, index) => (
               <ScrollReveal
@@ -83,7 +83,7 @@ export default function Journey() {
                     </div>
                   </div>
                   <div className="relative z-10 hidden md:block">
-                    <div className="w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-2 sm:border-4 border-white dark:border-slate-800 shadow-lg"></div>
+                    <div className="w-4 h-4 sm:w-6 sm:h-6 bg-linear-to-r from-blue-500 to-purple-600 rounded-full border-2 sm:border-4 border-white dark:border-slate-800 shadow-lg"></div>
                   </div>
                   <div className="w-full md:w-1/2 hidden md:block"></div>
                 </div>

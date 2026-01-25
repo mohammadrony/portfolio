@@ -22,7 +22,7 @@ export default function Hero() {
               fill
               className="rounded-full object-cover border-4 border-blue-500 shadow-2xl"
             />
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r"></div>
+            <div className="absolute inset-0 rounded-full bg-linear-to-r"></div>
           </div>
         </motion.div>
 
@@ -106,7 +106,7 @@ export default function Hero() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 my-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 hover:scale-105 shadow-xl text-lg font-semibold"
+            className="inline-flex items-center gap-2 px-8 py-4 my-4 bg-linear-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 hover:scale-105 shadow-xl text-lg font-semibold"
           >
             Download Resume
           </a>

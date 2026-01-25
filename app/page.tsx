@@ -9,7 +9,7 @@ import Skills from './components/Skills';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 overflow-x-hidden">
+    <main className="relative min-h-screen bg-linear-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 overflow-x-hidden">
       <Hero />
       <Journey />
       <Projects />

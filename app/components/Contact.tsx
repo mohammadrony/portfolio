@@ -2,14 +2,14 @@ import ScrollReveal from './ScrollReveal';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-6 bg-gradient-to-r from-blue-600 to-purple-600">
+    <section id="contact" className="py-20 px-6 bg-linear-to-r from-blue-600 to-purple-600">
       <div className="max-w-4xl mx-auto text-center">
         <ScrollReveal>
           <h2 className="text-4xl font-bold text-white mb-8">
             📞 Let&apos;s Build Something Amazing Together
           </h2>
           <p className="text-xl text-blue-100 mb-12">
-            Interested in DevOps solutions, cloud infrastructure, or AI-powered software solutions?
+            Interested in DevOps solutions, cloud infrastructure, or Automated solutions?
             Let&apos;s connect and discuss how we can optimize your software delivery processes.
           </p>
         </ScrollReveal>
@@ -18,7 +18,7 @@ export default function Contact() {
           <ScrollReveal delay={0.1} width="100%">
             <a href="mailto:mohammadronyku@gmail.com" className="block h-full">
               <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/20 transition-all duration-300 h-full flex flex-col items-center justify-center hover:scale-105 cursor-pointer">
-                <div className="text-4xl mb-3">📧</div>
+                <div className="text-4xl mb-3">✉</div>
                 <h3 className="text-white font-semibold mb-2">Email</h3>
                 <p className="text-blue-100 break-all">mohammadronyku@gmail.com</p>
               </div>
@@ -26,9 +26,9 @@ export default function Contact() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2} width="100%">
-            <a href="tel:+8801521255638" className="block h-full">
+            <a href="https://wa.me/8801521255638" className="block h-full">
               <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/20 transition-all duration-300 h-full flex flex-col items-center justify-center hover:scale-105 cursor-pointer">
-                <div className="text-4xl mb-3">📱</div>
+                <div className="text-4xl mb-3">☎</div>
                 <h3 className="text-white font-semibold mb-2">Phone</h3>
                 <p className="text-blue-100">(880) 1521-255638</p>
               </div>
@@ -36,11 +36,13 @@ export default function Contact() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.3} width="100%">
-            <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/20 transition-all duration-300 h-full flex flex-col items-center justify-center hover:scale-105 cursor-default">
-              <div className="text-4xl mb-3">📍</div>
-              <h3 className="text-white font-semibold mb-2">Location</h3>
-              <p className="text-blue-100">Dhaka, Bangladesh</p>
-            </div>
+            <a href="https://maps.app.goo.gl/GKsPZwzoCxZH8KYP7" className="block h-full">
+              <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/20 transition-all duration-300 h-full flex flex-col items-center justify-center hover:scale-105 cursor-default">
+                <div className="text-4xl mb-3">🕈</div>
+                <h3 className="text-white font-semibold mb-2">Location</h3>
+                <p className="text-blue-100">Dhaka, Bangladesh</p>
+              </div>
+            </a>
           </ScrollReveal>
         </div>
       </div>

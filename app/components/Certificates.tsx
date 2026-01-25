@@ -12,7 +12,7 @@ export default function Certificates() {
         </ScrollReveal>
         <div className="flex justify-center">
           <ScrollReveal>
-            <div className="bg-gradient-to-r from-green-400 to-blue-500 rounded-xl p-8 h-full shadow-lg hover:shadow-xl transition-all duration-300 card-hover max-w-md animate-glow">
+            <div className="bg-linear-to-r from-green-400 to-blue-500 rounded-xl p-8 h-full shadow-lg hover:shadow-xl transition-all duration-300 card-hover max-w-md animate-glow">
               <div className="text-center">
                 <div className="w-30 h-30 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg relative overflow-hidden">
                   <Image

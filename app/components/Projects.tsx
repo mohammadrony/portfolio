@@ -49,9 +49,9 @@ export default function Projects() {
           {projects.map((project, index) => (
             <ScrollReveal key={index} delay={index * 0.1} width="100%">
               <div
-                className="h-full bg-gradient-to-br from-purple-50 to-blue-50 dark:from-slate-700 dark:to-slate-600 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 card-hover flex flex-col"
+                className="h-full bg-linear-to-br from-purple-50 to-blue-50 dark:from-slate-700 dark:to-slate-600 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 card-hover flex flex-col"
               >
-                <div className="text-center flex-grow">
+                <div className="text-center grow">
                   <div className="text-6xl mb-4">{project.icon}</div>
                   <span className="inline-block px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-semibold mb-4">
                     {project.type}

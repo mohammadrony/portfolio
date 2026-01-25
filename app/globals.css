@@ -249,8 +249,8 @@ a:focus {
     color: black !important;
   }
   
-  .bg-gradient-to-r,
-  .bg-gradient-to-br {
+  .bg-linear-to-r,
+  .bg-linear-to-br {
     background: white !important;
   }
 }

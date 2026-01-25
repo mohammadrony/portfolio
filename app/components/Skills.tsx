@@ -21,7 +21,7 @@ export default function Skills() {
           {Object.entries(skills).map(([category, skillList], index) => (
             <ScrollReveal key={category} delay={index * 0.1}>
               <div
-                className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-700 dark:to-slate-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover h-full"
+                className="bg-linear-to-br from-slate-50 to-blue-50 dark:from-slate-700 dark:to-slate-600 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 card-hover h-full"
               >
                 <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
                   <span className="text-2xl">
