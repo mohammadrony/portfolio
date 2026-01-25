@@ -3,8 +3,6 @@ set -e
 
 IMAGE_NAME="portfolio:latest"
 
-echo "Starting deployment process..."
-
 echo "Building Docker image: $IMAGE_NAME..."
 docker build -t $IMAGE_NAME .
 

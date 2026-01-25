@@ -37,12 +37,6 @@ export default function Footer() {
             <FaFacebook />
           </a>
         </div>
-
-        <div className="text-center md:text-right">
-          <p className="text-slate-500 text-xs">
-            Built with <span className="text-white">Next.js</span> & <span className="text-white">Tailwind CSS</span>
-          </p>
-        </div>
       </div>
     </footer>
   );
