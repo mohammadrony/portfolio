@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "for d in \"$PWD/.agents/skills/\"/*/; do [ -d \"$d\" ] && n=$(basename \"$d\") && t=\"$HOME/.claude/skills/$n\" && [ ! -e \"$t\" ] && ln -s \"$d\" \"$t\"; done; true"
+          }
+        ]
+      }
+    ]
+  }
+}

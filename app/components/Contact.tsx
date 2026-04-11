@@ -1,49 +1,86 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { FaEnvelope, FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa";
 import ScrollReveal from './ScrollReveal';
+
+const contactInfo = [
+  {
+    icon: FaEnvelope,
+    title: "Email",
+    value: "mohammadronyku@gmail.com",
+    link: "mailto:mohammadronyku@gmail.com",
+    color: "from-red-500 to-pink-500"
+  },
+  {
+    icon: FaWhatsapp,
+    title: "WhatsApp",
+    value: "+880 1521-255638",
+    link: "https://wa.me/8801521255638",
+    color: "from-green-500 to-green-600"
+  },
+  {
+    icon: FaLinkedin,
+    title: "LinkedIn",
+    value: "mohammadrony",
+    link: "https://linkedin.com/in/mohammadrony",
+    color: "from-blue-600 to-blue-700"
+  },
+  {
+    icon: FaGithub,
+    title: "GitHub",
+    value: "mohammadrony",
+    link: "https://github.com/mohammadrony",
+    color: "from-gray-600 to-gray-800"
+  }
+];
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-6 bg-linear-to-r from-blue-600 to-purple-600">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="contact" className="py-20 px-6 bg-gradient-to-br from-blue-600 to-purple-600">
+      <div className="max-w-5xl mx-auto">
         <ScrollReveal>
-          <h2 className="text-4xl font-bold text-white mb-8">
-            📞 Let&apos;s Build Something Amazing Together
-          </h2>
-          <p className="text-xl text-blue-100 mb-12">
-            Interested in DevOps solutions, cloud infrastructure, or Automated solutions?
-            Let&apos;s connect and discuss how we can optimize your software delivery processes.
-          </p>
+          <div className="text-center mb-12">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl font-bold text-white mb-4"
+            >
+              <span aria-hidden="true">📞</span> Get In Touch
+            </motion.h2>
+            <p className="text-blue-100 max-w-xl mx-auto">
+              Interested in DevOps solutions or want to collaborate? Feel free to reach out through any of these channels.
+            </p>
+          </div>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <ScrollReveal delay={0.1} width="100%">
-            <a href="mailto:mohammadronyku@gmail.com" target="_blank" rel="noopener noreferrer" className="block h-full">
-              <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/20 transition-all duration-300 h-full flex flex-col items-center justify-center hover:scale-105 cursor-pointer">
-                <div className="text-4xl mb-3">✉</div>
-                <h3 className="text-white font-semibold mb-2">Email</h3>
-                <p className="text-blue-100 break-all">mohammadronyku@gmail.com</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {contactInfo.map((item, index) => (
+            <motion.a
+              key={item.title}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600 rounded-xl"
+            >
+              <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-lg rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-[box-shadow] duration-300 h-full">
+                <div className={`w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg`}>
+                  <item.icon className="text-2xl" aria-hidden="true" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300 text-sm break-all">
+                  {item.value}
+                </p>
               </div>
-            </a>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.2} width="100%">
-            <a href="https://wa.me/8801521255638" target="_blank" rel="noopener noreferrer" className="block h-full">
-              <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/20 transition-all duration-300 h-full flex flex-col items-center justify-center hover:scale-105 cursor-pointer">
-                <div className="text-4xl mb-3">☎</div>
-                <h3 className="text-white font-semibold mb-2">Phone</h3>
-                <p className="text-blue-100">(880) 1521-255638</p>
-              </div>
-            </a>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.3} width="100%">
-            <a href="https://maps.app.goo.gl/GKsPZwzoCxZH8KYP7" target="_blank" rel="noopener noreferrer" className="block h-full">
-              <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/20 transition-all duration-300 h-full flex flex-col items-center justify-center hover:scale-105 cursor-pointer">
-                <div className="text-4xl mb-3">🕈</div>
-                <h3 className="text-white font-semibold mb-2">Location</h3>
-                <p className="text-blue-100">Dhaka, Bangladesh</p>
-              </div>
-            </a>
-          </ScrollReveal>
+            </motion.a>
+          ))}
         </div>
       </div>
     </section>

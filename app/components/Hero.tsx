@@ -20,6 +20,7 @@ export default function Hero() {
               src="/image.jpeg"
               alt="Md. Rony"
               fill
+              priority
               className="rounded-full object-cover border-4 border-blue-500 shadow-2xl"
             />
             <div className="absolute inset-0 rounded-full bg-linear-to-r"></div>
@@ -32,7 +33,7 @@ export default function Hero() {
           transition={{ delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold text-slate-800 dark:text-white mb-6 gradient-text"
         >
-          Hi, I&apos;m Rony
+          Hi, I&apos;m Md. Rony
         </motion.h1>
 
         <motion.h2
@@ -69,31 +70,31 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="flex justify-center gap-4 mb-8"
+          className="flex flex-wrap justify-center gap-4 mb-8"
         >
           <a
             href="https://github.com/mohammadrony"
             target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 bg-slate-800 dark:bg-white text-white dark:text-slate-800 rounded-lg hover:bg-slate-700 dark:hover:bg-slate-100 transition-all duration-300 hover:scale-105 shadow-lg"
+            rel="noopener noreferrer me"
+            className="flex items-center gap-2 px-6 py-3 bg-slate-800 dark:bg-white text-white dark:text-slate-800 rounded-lg hover:bg-slate-700 dark:hover:bg-slate-100 transition duration-300 hover:scale-105 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2"
           >
-            <FaGithub className="text-xl" /> GitHub
+            <FaGithub className="text-xl" aria-hidden="true" /> GitHub
           </a>
           <a
             href="https://linkedin.com/in/mohammadrony"
             target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg"
+            rel="noopener noreferrer me"
+            className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 hover:scale-105 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           >
-            <FaLinkedin className="text-xl" /> LinkedIn
+            <FaLinkedin className="text-xl" aria-hidden="true" /> LinkedIn
           </a>
           <a
             href="https://facebook.com/mohammadrony29"
             target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300 hover:scale-105 shadow-lg"
+            rel="noopener noreferrer me"
+            className="flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 hover:scale-105 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
           >
-            <FaFacebook className="text-xl" /> Facebook
+            <FaFacebook className="text-xl" aria-hidden="true" /> Facebook
           </a>
         </motion.div>
 
@@ -106,7 +107,7 @@ export default function Hero() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 my-4 bg-linear-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 hover:scale-105 shadow-xl text-lg font-semibold"
+            className="inline-flex items-center gap-2 px-8 py-4 my-4 bg-linear-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition duration-300 hover:scale-105 shadow-xl text-lg font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
           >
             Download Resume
           </a>
