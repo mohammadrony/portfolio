@@ -25,13 +25,6 @@ const contactInfo = [
     value: "mohammadrony",
     link: "https://linkedin.com/in/mohammadrony",
     color: "from-blue-600 to-blue-700"
-  },
-  {
-    icon: FaGithub,
-    title: "GitHub",
-    value: "mohammadrony",
-    link: "https://github.com/mohammadrony",
-    color: "from-gray-600 to-gray-800"
   }
 ];
 
@@ -54,7 +47,7 @@ export default function Contact() {
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {contactInfo.map((item, index) => (
             <motion.a
               key={item.title}

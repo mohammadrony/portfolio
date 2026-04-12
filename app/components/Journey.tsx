@@ -128,9 +128,6 @@ export default function Journey() {
             >
               <span aria-hidden="true">🛤️</span> My Journey
             </motion.h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              From education to becoming a DevOps Engineer: My professional growth path
-            </p>
           </div>
         </ScrollReveal>
 

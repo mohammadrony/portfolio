@@ -19,6 +19,7 @@ export default function Certificates() {
                     src="/cka.png"
                     alt="Certified Kubernetes Administrator badge"
                     fill
+                    sizes="128px"
                     className="object-contain"
                   />
                 </div>

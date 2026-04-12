@@ -21,6 +21,7 @@ export default function Hero() {
               alt="Md. Rony"
               fill
               priority
+              sizes="160px"
               className="rounded-full object-cover border-4 border-blue-500 shadow-2xl"
             />
             <div className="absolute inset-0 rounded-full bg-linear-to-r"></div>

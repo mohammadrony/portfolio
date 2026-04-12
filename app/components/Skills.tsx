@@ -160,14 +160,6 @@ export default function Skills() {
             >
               <span aria-hidden="true">⚡</span> Technical Skills
             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
-            >
-              Technologies and tools I work with in my DevOps journey
-            </motion.p>
           </div>
         </ScrollReveal>
 

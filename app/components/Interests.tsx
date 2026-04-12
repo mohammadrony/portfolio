@@ -88,9 +88,6 @@ export default function Interests() {
             >
               <span aria-hidden="true">❤️</span> Interests &amp; Focus Areas
             </motion.h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Areas where I&apos;m passionate about building expertise and contributing
-            </p>
           </div>
         </ScrollReveal>
 

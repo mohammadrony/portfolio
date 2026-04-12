@@ -124,9 +124,6 @@ export default function Projects() {
             >
               <span aria-hidden="true">💼</span> My Projects
             </motion.h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Projects I&apos;ve built to practice and demonstrate my DevOps and development skills
-            </p>
           </div>
         </ScrollReveal>
 
