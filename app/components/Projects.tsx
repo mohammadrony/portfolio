@@ -132,36 +132,6 @@ export default function Projects() {
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
-
-        <ScrollReveal delay={0.3}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
-          >
-            {[
-              { value: "4", label: "Projects", icon: "🚀" },
-              { value: "100%", label: "Learning Focus", icon: "📚" },
-              { value: "6+", label: "Technologies", icon: "🛠️" },
-              { value: "Open", label: "Source", icon: "🔓" }
-            ].map((stat) => (
-              <motion.div
-                key={stat.label}
-                whileHover={{ scale: 1.03 }}
-                className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-lg rounded-xl p-4 text-center shadow-lg border border-white/20 dark:border-slate-600/50"
-              >
-                <div className="text-2xl mb-1" aria-hidden="true">{stat.icon}</div>
-                <div className="text-2xl font-bold text-slate-800 dark:text-white tabular-nums">
-                  {stat.value}
-                </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </ScrollReveal>
       </div>
     </section>
   );
