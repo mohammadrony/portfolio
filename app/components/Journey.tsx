@@ -8,6 +8,7 @@ interface JourneyItem {
   title: string;
   role: string;
   company: string;
+  companyUrl: string;
   period: string;
   icon: string;
   highlights: string[];
@@ -19,6 +20,7 @@ const journeyItems: JourneyItem[] = [
     title: "Education",
     role: "B.Sc. in Computer Science and Engineering",
     company: "Khulna University",
+    companyUrl: "https://ku.ac.bd/discipline/cse",
     period: "Jan 2018 – Feb 2023",
     icon: "🎓",
     highlights: [
@@ -32,6 +34,7 @@ const journeyItems: JourneyItem[] = [
     title: "Training",
     role: "Trainee DevOps & Cloud Engineer",
     company: "BJIT Academy Ltd.",
+    companyUrl: "https://bjitacademy.com",
     period: "Apr 2023 – Jul 2023",
     icon: "📚",
     highlights: [
@@ -46,15 +49,31 @@ const journeyItems: JourneyItem[] = [
     title: "Professional",
     role: "Junior DevOps Engineer",
     company: "Dynamic Solution Innovators Ltd.",
+    companyUrl: "https://dsinnovators.com",
     period: "Sep 2023 – Aug 2025",
     icon: "💼",
     highlights: [
       "Built CI/CD pipelines with Jenkins, ArgoCD, GitHub Actions",
       "Deployed microservices on Kubernetes with GitOps",
-      "Collaborated with dev & QA teams on automation",
-      "Managed AWS & DigitalOcean with Terraform & Ansible",
       "Implemented observability with Prometheus & Grafana",
+      "Managed AWS & DigitalOcean with Terraform & Ansible",
+      "Collaborated with dev & QA teams on automation",
       "Administered databases: PostgreSQL, MySQL, Oracle, MSSQL"
+    ]
+  },
+  {
+    id: 4,
+    title: "Professional",
+    role: "DevOps & QA Engineer",
+    company: "Dviz Technologies Inc.",
+    companyUrl: "https://dviz.tech",
+    period: "Nov 2025 – Present",
+    icon: "💼",
+    highlights: [
+      "Implemented Helm charts and GitOps with ArgoCD",
+      "Implemented security best practice with CI/CD pipeline",
+      "Managed application deployment in RedHat OpenShift cluster",
+      "Deployed application stack in GCP and AWS",
     ]
   }
 ];
@@ -72,7 +91,14 @@ function CardContent({ item }: { item: JourneyItem }) {
           <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm">{item.role}</p>
         </div>
       </div>
-      <p className="text-purple-600 dark:text-purple-400 font-semibold text-sm mb-2">{item.company}</p>
+      <a
+        href={item.companyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-purple-600 dark:text-purple-400 font-semibold text-sm mb-2 hover:underline inline-block"
+      >
+        {item.company}
+      </a>
       <p className="text-slate-500 dark:text-slate-400 text-xs mb-3">{item.period}</p>
       <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
         {item.highlights.slice(0, 3).map((highlight, idx) => (
