@@ -68,9 +68,10 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "MySQL", level: "advanced", category: "Databases" },
       { name: "PostgreSQL", level: "intermediate", category: "Databases" },
-      { name: "Oracle", level: "beginner", category: "Databases" },
-      { name: "MSSQL", level: "intermediate", category: "Databases" },
+      { name: "MongoDB", level: "intermediate", category: "Databases" },
       { name: "Redis", level: "intermediate", category: "Databases" },
+      { name: "MSSQL", level: "intermediate", category: "Databases" },
+      { name: "Oracle", level: "beginner", category: "Databases" },
     ]
   },
   {
@@ -79,8 +80,10 @@ const skillCategories: SkillCategory[] = [
     color: "from-yellow-500 to-orange-500",
     skills: [
       { name: "JavaScript", level: "intermediate", category: "Programming" },
-      { name: "Java", level: "intermediate", category: "Programming" },
       { name: "TypeScript", level: "intermediate", category: "Programming" },
+      { name: "Node.js", level: "intermediate", category: "Programming" },
+      { name: "Vue.js", level: "intermediate", category: "Programming" },
+      { name: "Dart", level: "beginner", category: "Programming" },
       { name: "K6", level: "beginner", category: "Programming" }
     ]
   }
