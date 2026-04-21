@@ -1,0 +1,102 @@
+% Build: latexmk -pdf main.tex
+% Deps:  sudo apt install texlive-latex-extra texlive-fonts-extra
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fontawesome}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{helvet}
+
+\renewcommand{\familydefault}{\sfdefault}
+\pagenumbering{gobble}
+\setlist[itemize]{leftmargin=*,noitemsep,topsep=0pt}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries}
+  {}{0pt}{\uppercase}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Md. Asaduzzaman Rony}}\\
+    \vspace{3pt}
+    \href{mailto:mohammadronyku@gmail.com}{mohammadronyku@gmail.com} $\vert$
+    +8801521255638 $\vert$
+    Dhaka, Bangladesh\\
+    \href{https://mohammadrony.com}{mohammadrony.com} $\vert$
+    \href{https://github.com/mohammadrony}{github.com/mohammadrony}
+\end{center}
+
+%------------------------------------------------------------
+\section*{Summary}
+\hrule
+DevOps Engineer with 3+ years of experience designing and automating on-premises and cloud infrastructure across AWS, GCP, and OpenShift. Skilled in container orchestration (Kubernetes, Docker) and implementing observability solutions. Improved deployment efficiency by engineering robust CI/CD pipelines with Jenkins, ArgoCD, and GitHub Actions. Committed to driving DevOps best practices and fostering an automation-first culture.
+
+%------------------------------------------------------------
+\section*{Experience}
+\hrule
+\href{https://dviz.tech}{\textbf{Dviz Technologies Inc.}}\quad\href{https://dviz.tech}{\raisebox{-0.4em}{\includegraphics[height=1.8em]{dviz.jpeg}}}
+\hfill \textit{DevOps \& QA Engineer} \\
+\textit{Nov 2025 -- Present}
+\begin{itemize}[leftmargin=*, itemsep=0.2em, topsep=0pt]
+    \item Deployed and managed application stacks on GCP, AWS, and RedHat OpenShift with autoscaling clusters.
+    \item Implemented Helm charts and GitOps workflows with ArgoCD for streamlined, auditable deployments.
+    \item Integrated Vault for secrets management, enforced RBAC, network policies, and automated image scanning.
+    \item Implemented observability with Prometheus and centralized log aggregation for compliance audit trails.
+\end{itemize}
+
+\vspace{0.1in}
+\href{https://dsinnovators.com}{\textbf{Dynamic Solution Innovators Ltd.}}\quad\href{https://dsinnovators.com}{\raisebox{-0.4em}{\includegraphics[height=1.8em]{dsi.png}}}
+\hfill \textit{Junior DevOps Engineer} \\
+\textit{Sep 2023 -- Aug 2025}
+\begin{itemize}[leftmargin=*, itemsep=0.2em, topsep=0pt]
+    \item Built CI/CD pipelines using Jenkins, ArgoCD, and GitHub Actions, automating with Bash and Python.
+    \item Deployed microservices on Kubernetes with GitOps and blue-green/canary deployments.
+    \item Managed AWS and DigitalOcean infrastructure using Terraform and Ansible for configuration.
+    \item Introduced observability stack (Prometheus, Grafana, OpenTelemetry), improving visibility across teams.
+\end{itemize}
+
+\vspace{0.1in}
+\href{https://bjitacademy.com}{\textbf{BJIT Academy Ltd.}}\quad\href{https://bjitacademy.com}{\raisebox{-0.4em}{\includegraphics[height=1.8em]{bjitacademy.png}}}
+\hfill \textit{Trainee DevOps \& Cloud Engineer} \\
+\textit{Apr 2023 -- Jul 2023}
+
+%------------------------------------------------------------
+\section*{Skills}
+\hrule
+\textbf{Infrastructure \& Cloud:} Linux, AWS, GCP, Docker, Kubernetes, OpenShift \\
+\textbf{IaC \& Automation:} Terraform, Ansible, Bash, Python \\
+\textbf{CI/CD \& DevOps Tools:} Jenkins, ArgoCD, Git, GitHub Actions, Helm \\
+\textbf{Observability:} Prometheus, Grafana, Fluent Bit, CloudWatch, OpenTelemetry \\
+\textbf{Security:} HashiCorp Vault, Trivy, RBAC, Network Policies \\
+\textbf{Databases:} MySQL, PostgreSQL, Oracle, MSSQL, Redis \\
+\textbf{Programming \& Testing:} Java, JavaScript, Jest, K6
+
+%------------------------------------------------------------
+\section*{Certifications}
+\hrule
+\textbf{\underline{\href{https://www.credly.com/badges/1234abcd5678}{Certified Kubernetes Administrator}}} - The Linux Foundation \hfill{Sep 2024 -- Sep 2026}
+
+%------------------------------------------------------------
+\section*{Projects}
+\hrule
+\vspace{0.1in}
+\begin{itemize}[leftmargin=*, itemsep=0.2em, topsep=0pt]
+    \item \underline{\textbf{\href{https://github.com/mohammadrony/emarket}{eMarket}}} – Built full-stack e-Commerce app (Vue.js, Node.js, MySQL, Stripe) with automated testing (Jest)
+    \item \underline{\textbf{\href{https://github.com/mohammadrony/smart-diary}{Smart Diary}}} – Flutter app with Node.js backend, Typescript, and MongoDB for task and note management.
+    \item \underline{\textbf{\href{https://github.com/mohammadrony/argo-practice}{GitOps Practice}}} – Designed GitOps workflow using ArgoCD for Blue Green and Canary Deployment.
+    \item \underline{\textbf{\href{https://github.com/mohammadrony/ansible-playbook}{Configuration Playbook}}} – Ansible playbook for configuring Kubernetes cluster and Jenkins server on Linux.
+\end{itemize}
+
+%------------------------------------------------------------
+\section*{Education}
+\hrule
+\href{https://ku.ac.bd/discipline/cse}{\textbf{Khulna University}}\quad\href{https://ku.ac.bd/discipline/cse}{\raisebox{-0.4em}{\includegraphics[height=1.8em]{ku.png}}}
+\hfill \textit{B.Sc. in Computer Science and Engineering}\\
+\textit{Jan 2018 -- Feb 2023}
+
+\end{document}

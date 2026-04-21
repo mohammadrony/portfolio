@@ -25,9 +25,11 @@ const skillCategories: SkillCategory[] = [
     color: "from-orange-500 to-red-500",
     skills: [
       { name: "AWS", level: "advanced", category: "Infrastructure" },
+      { name: "GCP", level: "intermediate", category: "Infrastructure" },
       { name: "Linux", level: "advanced", category: "Infrastructure" },
       { name: "Docker", level: "advanced", category: "Infrastructure" },
-      { name: "Kubernetes", level: "intermediate", category: "Infrastructure" }
+      { name: "Kubernetes", level: "advanced", category: "Infrastructure" },
+      { name: "OpenShift", level: "intermediate", category: "Infrastructure" },
     ]
   },
   {
@@ -58,7 +60,20 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Prometheus", level: "intermediate", category: "Observability" },
       { name: "Grafana", level: "intermediate", category: "Observability" },
-      { name: "OpenTelemetry", level: "beginner", category: "Observability" }
+      { name: "OpenTelemetry", level: "beginner", category: "Observability" },
+      { name: "Fluent Bit", level: "intermediate", category: "Observability" },
+      { name: "CloudWatch", level: "intermediate", category: "Observability" },
+    ]
+  },
+  {
+    name: "Security",
+    icon: "🔒",
+    color: "from-red-500 to-rose-500",
+    skills: [
+      { name: "HashiCorp Vault", level: "intermediate", category: "Security" },
+      { name: "Trivy", level: "intermediate", category: "Security" },
+      { name: "RBAC", level: "intermediate", category: "Security" },
+      { name: "Network Policies", level: "intermediate", category: "Security" },
     ]
   },
   {
@@ -149,8 +164,6 @@ function CategoryCard({ category, index }: { category: SkillCategory; index: num
 }
 
 export default function Skills() {
-  const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
-
   return (
     <section id="skills" className="py-20 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">

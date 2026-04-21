@@ -72,11 +72,12 @@ const personSchema = {
   image: 'https://mohammadrony.com/image.jpeg',
   jobTitle: 'DevOps Engineer',
   description:
-    'DevOps Engineer specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation.',
+    'DevOps Engineer specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, security compliance, and automation.',
   knowsAbout: [
     'DevOps', 'Cloud Infrastructure', 'Kubernetes', 'Docker', 'CI/CD',
-    'AWS', 'Terraform', 'Ansible', 'Jenkins', 'ArgoCD', 'GitOps',
-    'Prometheus', 'Grafana', 'Linux', 'Python', 'Bash',
+    'AWS', 'GCP', 'OpenShift', 'Terraform', 'Ansible', 'Jenkins', 'ArgoCD', 'GitOps',
+    'Prometheus', 'Grafana', 'Fluent Bit', 'CloudWatch', 'OpenTelemetry',
+    'HashiCorp Vault', 'Trivy', 'SOC 2', 'Linux', 'Python', 'Bash',
   ],
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
