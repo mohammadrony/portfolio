@@ -17,35 +17,21 @@ interface JourneyItem {
 const journeyItems: JourneyItem[] = [
   {
     id: 1,
-    title: "Education",
-    role: "B.Sc. in Computer Science and Engineering",
-    company: "Khulna University",
-    companyUrl: "https://ku.ac.bd/discipline/cse",
-    period: "Jan 2018 – Feb 2023",
-    icon: "🎓",
+    title: "Professional",
+    role: "DevOps & QA Engineer",
+    company: "Dviz Technologies Inc.",
+    companyUrl: "https://dviz.tech",
+    period: "Nov 2025 – Present",
+    icon: "💼",
     highlights: [
-      "Coursework: Data Structures, Algorithms, Database Systems",
-      "Operating Systems, Computer Networks",
-      "Software Engineering, AI, ML fundamentals"
+      "Implemented Helm charts and GitOps with ArgoCD",
+      "Implemented security best practice with CI/CD pipeline",
+      "Managed application deployment in RedHat OpenShift cluster",
+      "Deployed application stack in GCP and AWS",
     ]
   },
   {
     id: 2,
-    title: "Training",
-    role: "Trainee DevOps & Cloud Engineer",
-    company: "BJIT Academy Ltd.",
-    companyUrl: "https://bjitacademy.com",
-    period: "Apr 2023 – Jul 2023",
-    icon: "📚",
-    highlights: [
-      "AWS Cloud Services & Architecture",
-      "Docker & Kubernetes Containerization",
-      "Jenkins & GitLab CI/CD Pipelines",
-      "Ansible Automation & Configuration"
-    ]
-  },
-  {
-    id: 3,
     title: "Professional",
     role: "Junior DevOps Engineer",
     company: "Dynamic Solution Innovators Ltd.",
@@ -62,18 +48,32 @@ const journeyItems: JourneyItem[] = [
     ]
   },
   {
-    id: 4,
-    title: "Professional",
-    role: "DevOps & QA Engineer",
-    company: "Dviz Technologies Inc.",
-    companyUrl: "https://dviz.tech",
-    period: "Nov 2025 – Present",
-    icon: "💼",
+    id: 3,
+    title: "Training",
+    role: "Trainee DevOps & Cloud Engineer",
+    company: "BJIT Academy Ltd.",
+    companyUrl: "https://bjitacademy.com",
+    period: "Apr 2023 – Jul 2023",
+    icon: "📚",
     highlights: [
-      "Implemented Helm charts and GitOps with ArgoCD",
-      "Implemented security best practice with CI/CD pipeline",
-      "Managed application deployment in RedHat OpenShift cluster",
-      "Deployed application stack in GCP and AWS",
+      "AWS Cloud Services & Architecture",
+      "Docker & Kubernetes Containerization",
+      "Jenkins & GitLab CI/CD Pipelines",
+      "Ansible Automation & Configuration"
+    ]
+  },
+  {
+    id: 4,
+    title: "Education",
+    role: "B.Sc. in Computer Science and Engineering",
+    company: "Khulna University",
+    companyUrl: "https://ku.ac.bd/discipline/cse",
+    period: "Jan 2018 – Feb 2023",
+    icon: "🎓",
+    highlights: [
+      "Coursework: Data Structures, Algorithms, Database Systems",
+      "Operating Systems, Computer Networks",
+      "Software Engineering, AI, ML fundamentals"
     ]
   }
 ];
