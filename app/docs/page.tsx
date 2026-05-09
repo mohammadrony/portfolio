@@ -9,7 +9,7 @@ import SearchModalTrigger from './components/SearchModalTrigger';
 export const metadata: Metadata = {
   title: 'Documentation | Md. Rony',
   description:
-    'Technical documentation covering Linux, Docker, Kubernetes, Database, Cloud, Windows, Virtualization, Ansible, and Islamic topics.',
+    'Technical documentation covering Linux, Docker, Kubernetes, Database, Cloud, Windows, Virtualization and Ansible.',
   alternates: { canonical: '/docs' },
   openGraph: {
     title: 'Documentation | Md. Rony',

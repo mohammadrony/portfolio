@@ -98,22 +98,11 @@ export const TOPICS: Record<string, TopicConfig> = {
     textClass: 'text-red-700',
     badgeClass: 'bg-red-100 text-red-700',
   },
-  islam: {
-    label: 'Islam',
-    description: 'Quran, prayer, and Islamic reminders',
-    longDescription:
-      'Islamic content including Quran clips, prayer times, reminders about Allah, tawbah, and guidance for believers.',
-    colorClass: 'text-amber-600',
-    bgClass: 'bg-amber-50',
-    borderClass: 'border-amber-200',
-    textClass: 'text-amber-700',
-    badgeClass: 'bg-amber-100 text-amber-700',
-  },
 };
 
 export const TOPIC_ORDER = [
   'linux', 'docker', 'kubernetes', 'database', 'cloud',
-  'windows', 'virtualization', 'ansible', 'islam',
+  'windows', 'virtualization', 'ansible',
 ];
 
 export const TOPIC_ICONS: Record<string, string> = {
@@ -125,5 +114,4 @@ export const TOPIC_ICONS: Record<string, string> = {
   windows: 'windows',
   virtualization: 'virtualization',
   ansible: 'ansible',
-  islam: 'islam',
 };

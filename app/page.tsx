@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <main id="main-content" className="relative min-h-screen bg-linear-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 overflow-x-hidden">
       <Hero />
-      <Journey />
       <KnowledgeBase />
+      <Journey />
       <Projects />
       <Certificates />
       <Skills />

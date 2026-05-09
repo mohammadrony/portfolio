@@ -18,7 +18,6 @@ export default function TopicIcon({ topic, className = 'w-6 h-6' }: Props) {
     windows:        <FaWindows className={className} />,
     virtualization: <SiVirtualbox className={className} />,
     ansible:        <SiAnsible className={className} />,
-    islam:          <FaStarAndCrescent className={className} />,
   };
   return <>{icons[topic] ?? icons.database}</>;
 }

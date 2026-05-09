@@ -17,7 +17,6 @@ declare -A TOPICS=(
   ["windows"]="Windows"
   ["virtualization"]="Virtualization"
   ["ansible"]="Ansible-playbook"
-  ["islam"]="Islam"
 )
 
 sync_topic() {
