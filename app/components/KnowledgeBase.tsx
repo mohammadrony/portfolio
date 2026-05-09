@@ -2,18 +2,20 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { FaLinux, FaWindows, FaDatabase, FaCloud, FaStarAndCrescent } from 'react-icons/fa';
+import { SiDocker, SiKubernetes, SiAnsible, SiVirtualbox } from 'react-icons/si';
 import ScrollReveal from './ScrollReveal';
 
 const topics = [
-  { name: 'Linux', slug: 'linux', icon: '🐧', count: 242, color: 'from-orange-500 to-yellow-500', desc: 'Commands, scripting, system administration' },
-  { name: 'Kubernetes', slug: 'kubernetes', icon: '☸️', count: 149, color: 'from-blue-500 to-cyan-500', desc: 'Orchestration, deployments, networking' },
-  { name: 'Database', slug: 'database', icon: '🗄️', count: 108, color: 'from-green-500 to-teal-500', desc: 'MySQL, PostgreSQL, Redis, MongoDB' },
-  { name: 'Docker', slug: 'docker', icon: '🐳', count: 52, color: 'from-sky-500 to-blue-600', desc: 'Containers, images, compose, registries' },
-  { name: 'Cloud', slug: 'cloud', icon: '☁️', count: 42, color: 'from-violet-500 to-purple-600', desc: 'AWS, GCP, cloud-native patterns' },
-  { name: 'Virtualization', slug: 'virtualization', icon: '💻', count: 21, color: 'from-pink-500 to-rose-500', desc: 'KVM, QEMU, VMware, VirtualBox' },
-  { name: 'Islam', slug: 'islam', icon: '🕌', count: 11, color: 'from-emerald-500 to-green-600', desc: 'Quran, Hadith, Islamic knowledge' },
-  { name: 'Windows', slug: 'windows', icon: '🪟', count: 10, color: 'from-indigo-500 to-blue-500', desc: 'Administration, PowerShell, WSL' },
-  { name: 'Ansible', slug: 'ansible', icon: '⚙️', count: 5, color: 'from-red-500 to-orange-500', desc: 'Playbooks, roles, automation' },
+  { name: 'Linux',          slug: 'linux',          Icon: FaLinux,             count: 242, color: 'from-orange-500 to-yellow-500', desc: 'Commands, scripting, system administration' },
+  { name: 'Kubernetes',     slug: 'kubernetes',     Icon: SiKubernetes,        count: 149, color: 'from-blue-500 to-cyan-500',    desc: 'Orchestration, deployments, networking' },
+  { name: 'Database',       slug: 'database',       Icon: FaDatabase,          count: 108, color: 'from-green-500 to-teal-500',   desc: 'MySQL, PostgreSQL, Redis, MongoDB' },
+  { name: 'Docker',         slug: 'docker',         Icon: SiDocker,            count: 52,  color: 'from-sky-500 to-blue-600',     desc: 'Containers, images, compose, registries' },
+  { name: 'Cloud',          slug: 'cloud',          Icon: FaCloud,             count: 42,  color: 'from-violet-500 to-purple-600',desc: 'AWS, GCP, cloud-native patterns' },
+  { name: 'Virtualization', slug: 'virtualization', Icon: SiVirtualbox,        count: 21,  color: 'from-pink-500 to-rose-500',    desc: 'KVM, QEMU, VMware, VirtualBox' },
+  { name: 'Islam',          slug: 'islam',          Icon: FaStarAndCrescent,   count: 11,  color: 'from-emerald-500 to-green-600',desc: 'Quran, Hadith, Islamic knowledge' },
+  { name: 'Windows',        slug: 'windows',        Icon: FaWindows,           count: 10,  color: 'from-indigo-500 to-blue-500',  desc: 'Administration, PowerShell, WSL' },
+  { name: 'Ansible',        slug: 'ansible',        Icon: SiAnsible,           count: 5,   color: 'from-red-500 to-orange-500',   desc: 'Playbooks, roles, automation' },
 ];
 
 export default function KnowledgeBase() {
@@ -43,8 +45,8 @@ export default function KnowledgeBase() {
                 >
                   <div className={`absolute inset-0 bg-linear-to-br ${topic.color} opacity-0 group-hover:opacity-5 transition-opacity`} />
                   <div className="flex items-start gap-4">
-                    <div className={`w-11 h-11 rounded-lg bg-linear-to-br ${topic.color} flex items-center justify-center text-xl flex-shrink-0 shadow-sm`}>
-                      {topic.icon}
+                    <div className={`w-11 h-11 rounded-lg bg-linear-to-br ${topic.color} flex items-center justify-center flex-shrink-0 shadow-sm`}>
+                      <topic.Icon className="w-5 h-5 text-white" />
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2 mb-1">

@@ -1,5 +1,8 @@
 'use client';
 
+import { FaLinux, FaWindows, FaDatabase, FaCloud, FaStarAndCrescent } from 'react-icons/fa';
+import { SiDocker, SiKubernetes, SiAnsible, SiVirtualbox } from 'react-icons/si';
+
 interface Props {
   topic: string;
   className?: string;
@@ -7,57 +10,15 @@ interface Props {
 
 export default function TopicIcon({ topic, className = 'w-6 h-6' }: Props) {
   const icons: Record<string, React.ReactNode> = {
-    linux: (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-        <rect x="2" y="3" width="20" height="18" rx="2"/>
-        <polyline points="8 9 12 13 8 17"/>
-        <line x1="13" y1="17" x2="19" y2="17"/>
-      </svg>
-    ),
-    docker: (
-      <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-        <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.186m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185m-2.92 0h2.12a.186.186 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z"/>
-      </svg>
-    ),
-    kubernetes: (
-      <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-        <path d="M10.204 14.35l.007.01-.999 2.413a5.171 5.171 0 01-2.075-2.597l2.578-.437.004.005zm.025-.136l.11-.064v-1.218l-.783-.606-1.378.459-.327 2.117.013.014zM13.22 14l.003.004.11.064 1.364-.29-.327-2.117-1.378-.459-.783.606v1.218l.011.003zm.207.21l.007-.01 2.577.436a5.184 5.184 0 01-2.074 2.598l-.999-2.412-.004-.003zm-1.226 1.59l-.007.01.999 2.413a5.177 5.177 0 01-2.754.002l1-.415.014-.037zm-.667-6.36l-.005-.006v-.035l-1.337-1.49-.02.025zm1.334 0l.005-.006v-.035l1.337-1.49.02.025zm-4.28 2.026l.003-.014.013-.025zm7.56 0l.003-.014.013-.025zm-3.78-1.69l.005.006v.035l1.337 1.49.02-.025zm-1.334 0l-.005.006v.035l-1.337 1.49-.02-.025zM12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm0 2.16c.003.028.002.057 0 .084v1.618c0 .178.144.322.322.322h1.957c.178 0 .322-.144.322-.322V2.244A9.844 9.844 0 0112 2.16zm-1.638.046a9.84 9.84 0 00-5.66 3.012l1.128 1.128a.32.32 0 00.452-.001l.903-.903A.32.32 0 007.517 5L6.39 3.873a9.844 9.844 0 014.326-1.493zm5.276 3.012l1.128-1.128a9.84 9.84 0 00-5.66-3.012V2.16a9.844 9.844 0 014.326 1.493L14.483 5a.32.32 0 00.322.441l.903.903a.32.32 0 00.452 0zm2.89 6.624c.028-.002.057-.002.085 0h1.618a.322.322 0 00.322-.322V9.563A9.844 9.844 0 0121.84 12h-1.618a.322.322 0 00-.322.322v1.957a.322.322 0 00.322.322zm-7.26 4.32l-.007.01.999 2.413a5.171 5.171 0 002.075-2.597l-2.578-.437-.005.005zm-1.534 0l-.005-.005-2.577.436a5.184 5.184 0 002.074 2.598l1-2.412-.004-.003z"/>
-      </svg>
-    ),
-    database: (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-        <ellipse cx="12" cy="5" rx="9" ry="3"/>
-        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-      </svg>
-    ),
-    cloud: (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-        <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
-      </svg>
-    ),
-    windows: (
-      <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-        <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
-      </svg>
-    ),
-    virtualization: (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-        <path d="M8 21h8M12 17v4"/>
-        <rect x="6" y="7" width="12" height="6" rx="1"/>
-      </svg>
-    ),
-    ansible: (
-      <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm2.43 16.932l-2.047-4.867-3.045 3.483-1.043-1.043L11.48 11.1 8.28 7.068H9.9l5.49 9.864h-2.96z"/>
-      </svg>
-    ),
-    islam: (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-    ),
+    linux:          <FaLinux className={className} />,
+    docker:         <SiDocker className={className} />,
+    kubernetes:     <SiKubernetes className={className} />,
+    database:       <FaDatabase className={className} />,
+    cloud:          <FaCloud className={className} />,
+    windows:        <FaWindows className={className} />,
+    virtualization: <SiVirtualbox className={className} />,
+    ansible:        <SiAnsible className={className} />,
+    islam:          <FaStarAndCrescent className={className} />,
   };
-  return <>{icons[topic] || icons.database}</>;
+  return <>{icons[topic] ?? icons.database}</>;
 }
