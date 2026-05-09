@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import {motion } from 'framer-motion';
-import {FaLinux, FaWindows, FaDatabase, FaCloud, FaStarAndCrescent } from 'react-icons/fa';
+import {FaLinux, FaWindows, FaDatabase, FaCloud, FaStarAndCrescent, FaBookOpen } from 'react-icons/fa';
 import {SiDocker, SiKubernetes, SiAnsible, SiVirtualbox } from 'react-icons/si';
 import ScrollReveal from './ScrollReveal';
 
@@ -78,13 +78,10 @@ export default function KnowledgeBase() {
     <section id="knowledge-base" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal width="100%">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-4">
-              Knowledge Base
+          <div className="mb-12">
+            <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-3 flex items-center gap-3">
+              <FaBookOpen className="text-blue-500" /> Knowledge Base
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-              Notes and documentation across DevOps, infrastructure, and more.
-            </p>
           </div>
         </ScrollReveal>
 
