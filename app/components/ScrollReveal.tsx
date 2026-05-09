@@ -39,7 +39,7 @@ export default function ScrollReveal({
   };
 
   return (
-    <div style={{ position: 'relative', width, overflow: 'hidden' }} className={className}>
+    <div style={{ position: 'relative', width }} className={className}>
       <motion.div
         variants={getVariants()}
         initial="hidden"

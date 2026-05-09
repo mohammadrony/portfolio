@@ -165,17 +165,13 @@ function CategoryCard({ category, index }: { category: SkillCategory; index: num
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 px-6 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" className="py-20 px-6 bg-white/70 dark:bg-slate-800/40 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <motion.h2
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl font-bold text-slate-800 dark:text-white mb-3"
-            >
+            <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-3">
               <span aria-hidden="true">⚡</span> Technical Skills
-            </motion.h2>
+            </h2>
           </div>
         </ScrollReveal>
 

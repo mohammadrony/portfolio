@@ -31,16 +31,12 @@ const contactInfo = [
 export default function Contact() {
   return (
     <section id="contact" className="py-20 px-6 bg-gradient-to-br from-blue-600 to-purple-600">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <motion.h2
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl font-bold text-white mb-4"
-            >
+            <h2 className="text-4xl font-bold text-white mb-4">
               <span aria-hidden="true">📞</span> Get In Touch
-            </motion.h2>
+            </h2>
             <p className="text-blue-100 max-w-xl mx-auto">
               Interested in DevOps solutions or want to collaborate? Feel free to reach out through any of these channels.
             </p>

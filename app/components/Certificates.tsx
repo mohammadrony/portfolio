@@ -6,9 +6,11 @@ export default function Certificates() {
     <section id="certifications" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-16">
-            <span aria-hidden="true">🏆</span> Certifications
-          </h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-3">
+              <span aria-hidden="true">🏆</span> Certifications
+            </h2>
+          </div>
         </ScrollReveal>
         <div className="flex justify-center">
           <ScrollReveal>

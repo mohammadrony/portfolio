@@ -18,7 +18,7 @@ const topics = [
 
 export default function KnowledgeBase() {
   return (
-    <section id="knowledge-base" className="py-20 px-4 bg-white/50 dark:bg-slate-900/50">
+    <section id="knowledge-base" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal width="100%">
           <div className="text-center mb-12">

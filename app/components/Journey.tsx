@@ -159,17 +159,13 @@ function JourneyCard({ item, index }: { item: JourneyItem; index: number }) {
 
 export default function Journey() {
   return (
-    <section id="journey" className="py-20 px-6 bg-white/30 dark:bg-slate-900/30 backdrop-blur-md">
-      <div className="max-w-5xl mx-auto">
+    <section id="journey" className="py-20 px-6 bg-white/70 dark:bg-slate-800/40">
+      <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <motion.h2
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl font-bold text-slate-800 dark:text-white mb-3"
-            >
+            <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-3">
               <span aria-hidden="true">🛤️</span> My Journey
-            </motion.h2>
+            </h2>
           </div>
         </ScrollReveal>
 

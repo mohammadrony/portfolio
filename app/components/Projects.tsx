@@ -113,17 +113,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-6 bg-gradient-to-br from-slate-50/50 to-blue-50/50 dark:from-slate-900/30 dark:to-slate-800/30 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="py-20 px-6 bg-white/70 dark:bg-slate-800/40">
+      <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <motion.h2
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl font-bold text-slate-800 dark:text-white mb-3"
-            >
+            <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-3">
               <span aria-hidden="true">💼</span> My Projects
-            </motion.h2>
+            </h2>
           </div>
         </ScrollReveal>
 
