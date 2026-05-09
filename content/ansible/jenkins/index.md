@@ -1,0 +1,41 @@
+# Jenkins Server
+
+An Ansible playbook to configure Jenkins server with Docker and Kubectl in CentOS 9.
+
+## Pre-requisites
+
+Prepare an Ansible connection from the control node to the managed node using the [Ansible setup](./pre-requisites/Ansible-setup-in-CentOS.md) document.
+
+### Prepare kubernetes cluster [Optional]
+
+If you want to connect a Kubernetes cluster from the Jenkins server with `kubectl`, you can follow the instructions in the [kubernetes cluster](../kubernetes) playbook to create a cluster from scratch.
+
+## Check ansible hosts file
+
+Check [hosts](./hosts) file for host-group and host-names with control plane and worker node host names. By default, it would work as follows
+
+```bash
+[admin]
+admin-server
+```
+
+## Run Ansible playbook
+
+```bash
+ansible-playbook playbook.yml
+```
+
+## Start Jenkins service
+
+```bash
+jenkins_host="admin-server"
+ssh ${jenkins_host} "sudo systemctl start jenkins"
+ssh ${jenkins_host} "sudo systemctl status jenkins"
+```
+
+## Browse Jenkins dashboard from browser
+
+- Visit <http://admin-server:8080> URL from local browser.
+- Find the initial admin password from ansible control host's `/home/ansible/jenkins-admintoken.txt` file or Jenkins server host's `/var/lib/jenkins/secrets/initialAdminPassword` file.
+
+Thank you.

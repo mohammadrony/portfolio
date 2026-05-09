@@ -1,0 +1,3 @@
+# Tracing
+
+[Tempo example](https://github.com/grafana/tempo/tree/main/example/docker-compose/otel-collector)

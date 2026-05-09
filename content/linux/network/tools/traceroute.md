@@ -1,0 +1,5 @@
+# traceroute
+
+```sh
+traceroute <host>
+```

@@ -1,0 +1,16 @@
+# Description of Jannah
+
+- [Everyone shall know their place in Jannah even better than to get home in this world](https://youtube.com/clip/Ugkx1hqyui3QpkIMTIdwpEM6SLT-xwDqsRga)
+- [First batch of people that will enter Jannah will have faces as bright as the Moon](https://youtube.com/clip/UgkxfpGEAY8Xku5fE5zs9YPjbyYNxYH2gUyZ)
+- [Distance between two pillar of the gates of Jannah is 40 years of travel and a day will come people will be jam-packed entering this door](https://youtube.com/clip/Ugkx8lpUxUFroaUCnH3JEAJyupMp5OkU_4Q2)
+- [Batches will began to enter Jannah while Hisab is taking place](https://youtube.com/clip/UgkxLxyw9GRLFp1-HI_us9fOQgomnquSgDg1)
+- [First 3 people to enter Jannah: Martyr, servant who fulfill his task and worship Allah, poor person who lives a dignified life](https://youtube.com/clip/Ugkxc43D8UCrbblYHZC7_SrlwtOmncShkaS2)
+- [The last person to enter Jannah will have this world and 10 times like it](https://youtube.com/clip/Ugkx-NHAIgNlZnBboWi9nb0FsRQaiby6oyUh)
+- [Jannah will have brick of gold and brick of silver](https://youtube.com/clip/Ugkxbhu-4hOIUqmIRG1eP66-ZMQCWhXmS7Lf)
+- [Jannah will have light coming from under the throne of Allah](https://youtube.com/clip/Ugkx6b3riHEdiKPpndKU3S3_X5XM9D9KwGcj)
+- [People of the highest chamber in Jannah will be seen like a star in the sky by other people of Jannah](https://youtube.com/clip/UgkxZnTCqQlQquPKLLFhZoeZb5s3xAc4JYRv)
+- [Jannah have 100 levels for the people who strive in the way of Allah](https://youtube.com/clip/UgkxooyPatV1UAmYy25JJdfWnkJA63o6DuMa)
+- [If all of mankind are gathered in any one level it would be sufficient for all of them](https://youtube.com/clip/UgkxqmlA54txRR3cHmdCnQ29uMqVn6WKjGqB)
+- [Whoever prays 5 times a day and fast the month of Ramadan, has a grantee from Allah that he shall be forgiven](https://youtube.com/clip/UgkxY3jC6tGOJqZ6qqY3BOfOnhMV6rpABGdG)
+- [Who memorize the Quran he will rise up one level of Jannah for every verse he recites](https://youtube.com/clip/Ugkxi4fVVrAMK-9wZ9WCk7zT7f-HMCN1q0Wt)
+- [Reply to the call of Azan and ask Allah to grant our Prophet (saw.) Al Wasila the highest rank of Jannah for him](https://youtube.com/clip/UgkxU3l6imxlw8DkKg_A3w4tZ-CjjIvzNmtV)

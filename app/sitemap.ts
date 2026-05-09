@@ -1,12 +1,31 @@
 import type { MetadataRoute } from 'next';
- 
+import { getAllDocSlugs } from '@/lib/docs';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const base = 'https://mohammadrony.com';
+  const now = new Date();
+
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: 'https://mohammadrony.com',
+      url: base,
       lastModified: new Date('2025-04-11'),
       changeFrequency: 'weekly',
       priority: 1,
     },
+    {
+      url: `${base}/docs`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
   ];
+
+  const docRoutes: MetadataRoute.Sitemap = getAllDocSlugs().map((slug) => ({
+    url: `${base}/docs/${slug.join('/')}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...docRoutes];
 }

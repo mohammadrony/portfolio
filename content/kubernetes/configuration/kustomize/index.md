@@ -1,0 +1,3 @@
+# Kustomize
+
+- [Installation](./installation.md)
