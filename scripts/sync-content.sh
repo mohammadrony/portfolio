@@ -32,7 +32,6 @@ RSYNC_INCLUDES=(
   --exclude="*"
 )
 
-# Load last synced commit hashes
 declare -A LAST=()
 if [[ -f "$STATE_FILE" ]]; then
   while read -r t h; do LAST[$t]="$h"; done < "$STATE_FILE"
@@ -79,6 +78,7 @@ for topic in $(printf '%s\n' "${!SOURCES[@]}" | sort); do
 
   # --delete removes files gone from source (handles renames: old gone, new added)
   rsync -a --delete --prune-empty-dirs \
+    --max-size=200k \
     --exclude=".git/" --exclude="node_modules/" \
     "${RSYNC_INCLUDES[@]}" \
     "$src/" "$dst/"
@@ -96,7 +96,6 @@ for topic in $(printf '%s\n' "${!SOURCES[@]}" | sort); do
   synced=$((synced + 1))
 done
 
-# Save state for next run
 {
   for t in "${!NEXT[@]}"; do
     [[ -n "${NEXT[$t]:-}" ]] && printf '%s %s\n' "$t" "${NEXT[$t]}"
