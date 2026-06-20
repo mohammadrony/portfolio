@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -23,32 +24,69 @@ export interface Heading {
   level: number;
 }
 
-// ---------- Path resolution ----------
+export const CODE_EXTS: Record<string, string> = {
+  '.sh':   'bash',
+  '.bash': 'bash',
+  '.yaml': 'yaml',
+  '.yml':  'yaml',
+  '.json': 'json',
+  '.toml': 'toml',
+  '.conf': 'nginx',
+  '.env':  'bash',
+};
 
-export function slugToFilePath(slug: string[]): string | null {
-  const base = path.join(CONTENT_DIR, ...slug);
-  if (fs.existsSync(base + '.md')) return base + '.md';
-  const idx = path.join(base, 'index.md');
-  if (fs.existsSync(idx)) return idx;
-  return null;
+const SUPPORTED_EXTS = ['.md', ...Object.keys(CODE_EXTS)];
+
+function isUnderContentDir(resolvedPath: string): boolean {
+  return resolvedPath === CONTENT_DIR || resolvedPath.startsWith(CONTENT_DIR + path.sep);
 }
 
-// ---------- Content reading ----------
+export function slugToFilePath(slug: string[]): string | null {
+  const base = path.resolve(CONTENT_DIR, ...slug); // nosemgrep: path-join-resolve-traversal
+  if (!isUnderContentDir(base)) return null;
+  if (fs.existsSync(base + '.md')) return base + '.md';
+  const idx = path.join(base, 'index.md'); // nosemgrep: path-join-resolve-traversal
+  if (fs.existsSync(idx)) return idx;
+  for (const ext of Object.keys(CODE_EXTS)) {
+    if (fs.existsSync(base + ext)) return base + ext;
+  }
+  return null;
+}
 
 export function getDocContent(slug: string[]): { content: string; meta: DocMeta } | null {
   const filePath = slugToFilePath(slug);
   if (!filePath) return null;
   const raw = fs.readFileSync(filePath, 'utf8');
+  const ext = path.extname(filePath);
+
+  if (ext !== '.md') {
+    const lang = CODE_EXTS[ext] || 'text';
+    const filename = path.basename(filePath);
+    return {
+      content: `\`\`\`${lang}\n${raw}\n\`\`\``,
+      meta: { title: filename },
+    };
+  }
+
   const { data, content } = matter(raw);
   const titleFromH1 = content.match(/^#\s+(.+)$/m)?.[1]?.trim();
   const title = (data.title as string) || titleFromH1 || slugToTitle(slug[slug.length - 1]);
   return { content, meta: { ...data, title } };
 }
 
-// ---------- Navigation tree ----------
+export function isSlugDirectory(slug: string[]): boolean {
+  const resolved = path.resolve(CONTENT_DIR, ...slug); // nosemgrep: path-join-resolve-traversal
+  if (!isUnderContentDir(resolved)) return false;
+  try {
+    return fs.statSync(resolved).isDirectory();
+  } catch {
+    return false;
+  }
+}
 
 export function getTopicNav(topic: string): NavItem[] {
-  const dir = path.join(CONTENT_DIR, topic);
+  const dir = path.resolve(CONTENT_DIR, topic); // nosemgrep: path-join-resolve-traversal
+  if (!isUnderContentDir(dir)) return [];
   if (!fs.existsSync(dir)) return [];
   return buildNavTree(dir, [topic]);
 }
@@ -64,18 +102,20 @@ function buildNavTree(dir: string, prefix: string[]): NavItem[] {
 
     if (entry.isDirectory()) {
       const slug = [...prefix, entry.name];
-      const idx = path.join(dir, entry.name, 'index.md');
+      const idx = path.join(dir, entry.name, 'index.md'); // nosemgrep: path-join-resolve-traversal
       dirs.push({
         title: getTitle(idx, entry.name),
         slug,
         isDir: true,
-        children: buildNavTree(path.join(dir, entry.name), slug),
+        children: buildNavTree(path.join(dir, entry.name), slug), // nosemgrep: path-join-resolve-traversal
       });
-    } else if (entry.name.endsWith('.md')) {
-      const name = entry.name.replace(/\.md$/, '');
+    } else {
+      const ext = path.extname(entry.name);
+      if (!SUPPORTED_EXTS.includes(ext)) continue;
+      const name = entry.name.slice(0, -ext.length);
       const slug = [...prefix, name];
       files.push({
-        title: getTitle(path.join(dir, entry.name), name),
+        title: ext === '.md' ? getTitle(path.join(dir, entry.name), name) : entry.name, // nosemgrep: path-join-resolve-traversal
         slug,
       });
     }
@@ -84,23 +124,19 @@ function buildNavTree(dir: string, prefix: string[]): NavItem[] {
   return [...dirs, ...files];
 }
 
-// ---------- All topics ----------
-
 export function getAllTopics(): string[] {
   if (!fs.existsSync(CONTENT_DIR)) return [];
   return fs.readdirSync(CONTENT_DIR).filter(
-    (t) => fs.statSync(path.join(CONTENT_DIR, t)).isDirectory()
+    (t) => fs.statSync(path.join(CONTENT_DIR, t)).isDirectory() // nosemgrep: path-join-resolve-traversal
   );
 }
-
-// ---------- Static params ----------
 
 export function getAllDocSlugs(): string[][] {
   const slugs: string[][] = [];
   const topics = getAllTopics();
   for (const topic of topics) {
-    slugs.push([topic]); // /docs/linux
-    collectSlugs(path.join(CONTENT_DIR, topic), [topic], slugs);
+    slugs.push([topic]);
+    collectSlugs(path.join(CONTENT_DIR, topic), [topic], slugs); // nosemgrep: path-join-resolve-traversal
   }
   return slugs;
 }
@@ -112,30 +148,32 @@ function collectSlugs(dir: string, prefix: string[], acc: string[][]): void {
     if (entry.isDirectory()) {
       const slug = [...prefix, entry.name];
       acc.push(slug);
-      collectSlugs(path.join(dir, entry.name), slug, acc);
-    } else if (entry.name.endsWith('.md') && entry.name !== 'index.md') {
-      acc.push([...prefix, entry.name.replace(/\.md$/, '')]);
+      collectSlugs(path.join(dir, entry.name), slug, acc); // nosemgrep: path-join-resolve-traversal
+    } else {
+      const ext = path.extname(entry.name);
+      if (!SUPPORTED_EXTS.includes(ext)) continue;
+      if (entry.name === 'index.md') continue;
+      acc.push([...prefix, entry.name.slice(0, -ext.length)]);
     }
   }
 }
 
-// ---------- Doc count ----------
-
 export function countDocs(topic: string): number {
-  const dir = path.join(CONTENT_DIR, topic);
+  const dir = path.join(CONTENT_DIR, topic); // nosemgrep: path-join-resolve-traversal
   if (!fs.existsSync(dir)) return 0;
   let count = 0;
   const walk = (d: string) => {
     for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
-      if (entry.isDirectory()) walk(path.join(d, entry.name));
-      else if (entry.name.endsWith('.md') && entry.name !== 'index.md') count++;
+      if (entry.isDirectory()) walk(path.join(d, entry.name)); // nosemgrep: path-join-resolve-traversal
+      else {
+        const ext = path.extname(entry.name);
+        if (SUPPORTED_EXTS.includes(ext) && entry.name !== 'index.md') count++;
+      }
     }
   };
   walk(dir);
   return count;
 }
-
-// ---------- Heading extraction for TOC ----------
 
 export function extractHeadings(markdown: string): Heading[] {
   const headings: Heading[] = [];
@@ -153,8 +191,6 @@ export function extractHeadings(markdown: string): Heading[] {
   }
   return headings;
 }
-
-// ---------- Previous / Next navigation ----------
 
 export interface NavNeighbors {
   prev: { title: string; slug: string[] } | null;
@@ -181,8 +217,6 @@ function flattenNav(items: NavItem[]): NavItem[] {
   return result;
 }
 
-// ---------- Search index ----------
-
 export interface SearchRecord {
   title: string;
   slug: string[];
@@ -206,8 +240,6 @@ export function buildSearchIndex(): SearchRecord[] {
   }
   return records;
 }
-
-// ---------- Helpers ----------
 
 function getTitle(filePath: string, fallback: string): string {
   if (!fs.existsSync(filePath)) return slugToTitle(fallback);

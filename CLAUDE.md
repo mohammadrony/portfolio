@@ -1,42 +1,64 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 @AGENTS.md
 
 ## Commands
 
 ```bash
-npm run dev       # start dev server with Turbopack
-npm run build     # production build with Turbopack
-npm run lint      # ESLint
-npm run start     # serve production build
-docker build -t portfolio .   # build Docker image (standalone output)
+pnpm dev              # dev server (Turbopack)
+pnpm build            # production build
+pnpm sync             # sync content from source repos
+FORCE=1 pnpm sync     # force full resync
+docker build -t portfolio .
 ```
 
-There are no tests in this repository.
+No tests.
 
-## Architecture
+## What this is
 
-**Single-page portfolio** built with Next.js 16 App Router. The entire site is one route (`app/page.tsx`) that renders all sections in sequence: Hero → Journey → Projects → Certificates → Skills → Interests → Contact → Footer.
+Personal portfolio + technical notes site. Two distinct subsystems:
 
-**Section components** (`app/components/`) are self-contained — each owns its own data as inline arrays/objects (no external data fetching, no CMS). To update content, edit the data directly in the component file.
+**Portfolio** (`app/page.tsx`): single-page, all sections in one route. Section components own their data as inline arrays - no CMS, no fetch. To update content, edit the component file directly.
 
-**Animation pattern**: Every section wraps animated elements in `ScrollReveal` (`app/components/ScrollReveal.tsx`), a Framer Motion component that triggers `whileInView`. It respects `prefers-reduced-motion`. This is the canonical way to add scroll animations — don't introduce a second pattern.
+**Docs** (`app/docs/`): file-based docs system backed by `content/`. Content is synced from separate source repos on the local machine, not stored in this repo.
 
-**Design system** (`lib/design-system.ts`) exports shared Tailwind class strings (`designSystem.components.card`, etc.), animation variants (`fadeInUp`, `staggerChildren`), and a `categoryColors` map used by Skills and Projects. Use these instead of writing inline Tailwind for cards/buttons/sections.
+## Invariants - don't break these
 
-**SEO layer** is entirely in `app/layout.tsx`: Next.js `Metadata` export, JSON-LD `Person` schema, `robots.txt` sitemap reference, and a client-side favicon switcher script for dark/light mode. Update personal details there.
+**Animations**: always use `ScrollReveal` (Framer Motion `whileInView`). It respects `prefers-reduced-motion`. Don't introduce a second animation pattern.
 
-**Deployment**: `next.config.ts` sets `output: "standalone"` for Docker. The Dockerfile produces a minimal image from the standalone output. Security headers (X-Frame-Options, CSP-adjacent) are applied via `next.config.ts` `headers()`.
+**Styling**: use `lib/design-system.ts` for cards, buttons, and section containers. Don't write ad-hoc Tailwind for shared UI.
 
-## Codebase Knowledge Graph (RAG)
+**Icons**: use `react-icons` throughout. No custom SVG paths.
 
-A graphify knowledge graph lives in `graphify-out/graph.json` (115 nodes, 119 edges). Query it before searching files:
+**pnpm overrides**: go in `pnpm-workspace.yaml`, not `package.json` (pnpm 11 ignores the `pnpm` field in package.json).
 
-```bash
-/graphify query "<question>"
-/graphify . --update   # rebuild after changes
-```
+**Path safety in `lib/docs.ts`**: every `path.resolve`/`path.join` is guarded by `isUnderContentDir()`. Lines carry `// nosemgrep: path-join-resolve-traversal` - don't remove the guard.
 
-Outputs: `graphify-out/graph.html` (interactive viz), `graphify-out/GRAPH_REPORT.md` (audit).
+**`dangerouslySetInnerHTML` suppression**: `{/* nosemgrep: react-dangerouslysetinnerhtml */}` must be on the **same line** as the element - JSX nosemgrep comments don't work across lines.
+
+**Directory slugs**: a slug that maps to a directory with no `index.md` redirects to parent, not 404. Logic is in `app/docs/[...slug]/page.tsx` via `isSlugDirectory()`.
+
+## Content system
+
+`content/<topic>/` is populated by `scripts/sync-content.sh` from `~/Projects/<RepoName>/`. The script:
+- tracks last-synced git commit hash in `.sync-state` (gitignored) and skips unchanged topics
+- uses `rsync --delete` so renames don't leave duplicates
+- promotes `README.md` → `index.md` (drops it if `index.md` already exists)
+- syncs `.md .sh .bash .yaml .yml .json .toml .conf`
+
+Non-`.md` files are served as syntax-highlighted code pages automatically - no manual wiring needed.
+
+To add a topic: add to `TOPICS` + `TOPIC_ORDER` in `lib/docs-config.ts`, and add a source mapping in the `SOURCES` array in `scripts/sync-content.sh`.
+
+## Security decisions (don't revisit without reason)
+
+- **`next`** pinned to `^16.2.9` - fixes all HIGH CVEs present in ≤16.2.5
+- **`postcss`** forced to `>=8.5.10` in `pnpm-workspace.yaml` - fixes MEDIUM CVE
+- **`js-yaml`** cannot be upgraded - `gray-matter` 4.x requires the v3 API (`safeLoad`, removed in v4). Risk accepted; content is local filesystem only, not user input.
+- **Semgrep** (`semgrep scan --config auto --error .`) passes at 0 findings. `content/` is excluded via `.semgrepignore` (example credentials in tutorial docs).
+
+## Docker
+
+Base: `registry.access.redhat.com/ubi10/nodejs-24` (UBI 10, glibc, regularly patched).
+Non-root user `nextjs:nodejs` (uid/gid 1001) created with `groupadd`/`useradd --no-create-home` - not Alpine syntax.
+Standalone output (`next.config.ts`: `output: "standalone"`); runner stage copies only `.next/standalone`, `.next/static`, `public/`, `content/`.

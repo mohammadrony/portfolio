@@ -3,13 +3,6 @@
 import { motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 
-interface Interest {
-  title: string;
-  icon: string;
-  description: string;
-  color: string;
-}
-
 const interests = [
   {
     title: "Cloud Architecture",

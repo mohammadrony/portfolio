@@ -21,7 +21,7 @@ const journeyItems: JourneyItem[] = [
     role: "DevOps & QA Engineer",
     company: "Dviz Technologies Inc.",
     companyUrl: "https://dviz.tech",
-    period: "Nov 2025 – Present",
+    period: "Nov 2025 - Present",
     icon: "💼",
     highlights: [
       "Implemented Helm charts and GitOps with ArgoCD",
@@ -36,7 +36,7 @@ const journeyItems: JourneyItem[] = [
     role: "Junior DevOps Engineer",
     company: "Dynamic Solution Innovators Ltd.",
     companyUrl: "https://dsinnovators.com",
-    period: "Sep 2023 – Aug 2025",
+    period: "Sep 2023 - Aug 2025",
     icon: "💼",
     highlights: [
       "Built CI/CD pipelines with Jenkins, ArgoCD, GitHub Actions",
@@ -53,7 +53,7 @@ const journeyItems: JourneyItem[] = [
     role: "Trainee DevOps & Cloud Engineer",
     company: "BJIT Academy Ltd.",
     companyUrl: "https://bjitacademy.com",
-    period: "Apr 2023 – Jul 2023",
+    period: "Apr 2023 - Jul 2023",
     icon: "📚",
     highlights: [
       "AWS Cloud Services & Architecture",
@@ -68,7 +68,7 @@ const journeyItems: JourneyItem[] = [
     role: "B.Sc. in Computer Science and Engineering",
     company: "Khulna University",
     companyUrl: "https://ku.ac.bd/discipline/cse",
-    period: "Jan 2018 – Feb 2023",
+    period: "Jan 2018 - Feb 2023",
     icon: "🎓",
     highlights: [
       "Coursework: Data Structures, Algorithms, Database Systems",

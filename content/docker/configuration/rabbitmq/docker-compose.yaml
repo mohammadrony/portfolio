@@ -1,0 +1,86 @@
+services:
+  rabbitmq-1:
+    image: rabbitmq:3-management
+    container_name: 'rabbitmq-1'
+    hostname: rabbitmq-1
+    network_mode: 'host'
+    # ports:
+    #   - "5672:5672"
+    #   - "15672:15672"
+    #   - "25672:25672"
+    restart: always
+    extra_hosts:
+      - "rabbitmq-1:192.168.0.2"
+      - "rabbitmq-2:192.168.0.3"
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+    environment:
+      CLUSTER_MAIN: rabbitmq-1
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:15672"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - rabbitmq1:/var/lib/rabbitmq/mnesia
+      - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./cluster-entrypoint.sh:/usr/local/bin/cluster-entrypoint.sh
+    entrypoint: /usr/local/bin/cluster-entrypoint.sh
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: '1G'
+        reservations:
+          cpus: '0.5'
+          memory: '500M'
+
+  rabbitmq-2:
+    image: rabbitmq:3-management
+    container_name: 'rabbitmq-2'
+    hostname: rabbitmq-2
+    network_mode: 'host'
+    # ports:
+    #   - "5672:5672"
+    #   - "15672:15672"
+    #   - "25672:25672"
+    restart: always
+    extra_hosts:
+      - "rabbitmq-1:192.168.0.2"
+      - "rabbitmq-2:192.168.0.3"
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+    environment:
+      CLUSTER_MAIN: rabbitmq-1
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:15672"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - rabbitmq2:/var/lib/rabbitmq/mnesia
+      - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./cluster-entrypoint.sh:/usr/local/bin/cluster-entrypoint.sh
+    entrypoint: /usr/local/bin/cluster-entrypoint.sh
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: '1G'
+        reservations:
+          cpus: '0.5'
+          memory: '500M'
+
+volumes:
+  rabbitmq1:
+  rabbitmq2:

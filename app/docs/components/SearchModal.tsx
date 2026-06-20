@@ -43,13 +43,15 @@ export default function SearchModal({ isOpen, onClose }: Props) {
       });
   }, [isOpen, index]);
 
-  // Focus input when opened
+  // Focus input and reset state when opened
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 50);
-      setQuery('');
-      setResults([]);
-      setSelected(0);
+      setTimeout(() => {
+        inputRef.current?.focus();
+        setQuery('');
+        setResults([]);
+        setSelected(0);
+      }, 50);
     }
   }, [isOpen]);
 
@@ -89,7 +91,12 @@ export default function SearchModal({ isOpen, onClose }: Props) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] px-4">
-      <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" onClick={onClose} />
+      <button
+        type="button"
+        className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm cursor-default"
+        onClick={onClose}
+        aria-label="Close search"
+      />
       <div className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
         {/* Search input */}
         <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-100">
@@ -105,12 +112,14 @@ export default function SearchModal({ isOpen, onClose }: Props) {
             placeholder="Search documentation..."
             className="flex-1 text-slate-900 placeholder-slate-400 bg-transparent outline-none text-base"
           />
-          <kbd
+          <button
+            type="button"
             onClick={onClose}
             className="text-xs bg-slate-100 border border-slate-200 rounded px-1.5 py-0.5 text-slate-400 cursor-pointer hover:bg-slate-200"
+            aria-label="Close search"
           >
             ESC
-          </kbd>
+          </button>
         </div>
 
         {/* Results */}

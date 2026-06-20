@@ -29,7 +29,7 @@ export default function Certificates() {
                   Certified Kubernetes Administrator
                 </h3>
                 <p className="text-green-100 mb-4 text-lg">The Linux Foundation</p>
-                <p className="text-white font-semibold text-lg">Sep 2024 – Sep 2026</p>
+                <p className="text-white font-semibold text-lg">Sep 2024 - Sep 2026</p>
                 <a
                   href="https://www.credly.com/badges/b075342a-283a-4067-a2d6-cf4c7b114a26"
                   target="_blank"

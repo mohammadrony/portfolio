@@ -1,0 +1,6 @@
+# Documentation content — example credentials in tutorials are not secrets
+content/
+
+# Build artifacts and generated files
+.next/
+node_modules/

@@ -1,55 +1,106 @@
 #!/usr/bin/env bash
-# Sync markdown docs from Projects repos into content/
-# Run: ./scripts/sync-content.sh
-# Add to CI/CD: run before `next build`
+# Sync docs/scripts from source repos into content/.
+# Usage: pnpm sync            -- skip topics whose git HEAD hasn't changed
+#        FORCE=1 pnpm sync   -- resync everything regardless
+set -euo pipefail
 
-set -e
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONTENT_DIR="$SCRIPT_DIR/../content"
+STATE_FILE="$SCRIPT_DIR/../.sync-state"
+PROJECTS_DIR="${PROJECTS_DIR:-$HOME/Projects}"
+FORCE="${FORCE:-0}"
 
-PROJECTS_DIR="${PROJECTS_DIR:-/home/mdrony/Projects}"
-CONTENT_DIR="$(dirname "$0")/../content"
-
-declare -A TOPICS=(
-  ["linux"]="Linux"
-  ["docker"]="Docker"
-  ["kubernetes"]="Kubernetes"
-  ["database"]="Database"
-  ["cloud"]="Cloud"
-  ["windows"]="Windows"
-  ["virtualization"]="Virtualization"
-  ["ansible"]="Ansible-playbook"
+declare -A SOURCES=(
+  [ansible]="Ansible-playbook"
+  [cloud]="Cloud"
+  [database]="Database"
+  [docker]="Docker"
+  [kubernetes]="Kubernetes"
+  [linux]="Linux"
+  [virtualization]="Virtualization"
+  [windows]="Windows"
 )
 
-sync_topic() {
-  local slug="$1"
-  local src_dir="$PROJECTS_DIR/$2"
-  local dest_dir="$CONTENT_DIR/$slug"
+RSYNC_INCLUDES=(
+  --include="*/"
+  --include="*.md"
+  --include="*.sh" --include="*.bash"
+  --include="*.yaml" --include="*.yml"
+  --include="*.json"
+  --include="*.toml"
+  --include="*.conf"
+  --exclude="*"
+)
 
-  if [ ! -d "$src_dir" ]; then
-    echo "  [skip] $src_dir not found"
-    return
+# Load last synced commit hashes
+declare -A LAST=()
+if [[ -f "$STATE_FILE" ]]; then
+  while read -r t h; do LAST[$t]="$h"; done < "$STATE_FILE"
+fi
+declare -A NEXT=()
+
+synced=0
+
+for topic in $(printf '%s\n' "${!SOURCES[@]}" | sort); do
+  src="$PROJECTS_DIR/${SOURCES[$topic]}"
+  dst="$CONTENT_DIR/$topic"
+
+  if [[ ! -d "$src" ]]; then
+    printf "skip  %-16s not found: %s\n" "$topic" "$src"
+    continue
   fi
 
-  rm -rf "$dest_dir"
-  mkdir -p "$dest_dir"
+  head=$(git -C "$src" rev-parse HEAD 2>/dev/null || true)
+  NEXT[$topic]="${head}"
+  last="${LAST[$topic]:-}"
 
-  rsync -a --exclude=".git" --exclude=".git/**" --include="*/" --include="*.md" --exclude="*" "$src_dir/" "$dest_dir/"
+  if [[ "$FORCE" == "0" && -n "$last" && "$last" == "$head" ]]; then
+    printf "ok    %-16s up to date\n" "$topic"
+    continue
+  fi
 
-  # Remove any .git dirs that slipped through
-  find "$dest_dir" -name ".git" -type d -exec rm -rf {} + 2>/dev/null || true
+  if [[ -n "$last" && -n "$head" && "$last" != "$head" ]]; then
+    n=$(git -C "$src" rev-list --count "$last..$head" 2>/dev/null || echo "?")
+    printf "sync  %-16s %s new commit(s)\n" "$topic" "$n"
+    git -C "$src" diff --name-status "$last" "$head" -- . \
+      | awk '/^[AMDR]/{
+          if ($1~/^R/) print "       "$1" "$2" -> "$3
+          else         print "       "$1" "$2
+        }' || true
+  else
+    printf "sync  %-16s\n" "$topic"
+  fi
 
-  # Rename README.md → index.md at every level
-  find "$dest_dir" -name "README.md" | while read f; do
-    mv "$f" "$(dirname "$f")/index.md"
-  done
+  if git -C "$src" status --porcelain 2>/dev/null | grep -q .; then
+    printf "warn  %-16s uncommitted changes not included\n" "$topic"
+  fi
 
-  echo "  [ok] $slug ($(find "$dest_dir" -name '*.md' | wc -l) files)"
-}
+  mkdir -p "$dst"
 
-echo "Syncing content..."
-mkdir -p "$CONTENT_DIR"
+  # --delete removes files gone from source (handles renames: old gone, new added)
+  rsync -a --delete --prune-empty-dirs \
+    --exclude=".git/" --exclude="node_modules/" \
+    "${RSYNC_INCLUDES[@]}" \
+    "$src/" "$dst/"
 
-for slug in "${!TOPICS[@]}"; do
-  sync_topic "$slug" "${TOPICS[$slug]}"
+  # README.md -> index.md: rename if no index.md exists, else drop the README
+  while IFS= read -r -d '' readme; do
+    index="$(dirname "$readme")/index.md"
+    if [[ -f "$index" ]]; then
+      rm "$readme"
+    else
+      mv "$readme" "$index"
+    fi
+  done < <(find "$dst" -name "README.md" -print0)
+
+  synced=$((synced + 1))
 done
 
-echo "Done."
+# Save state for next run
+{
+  for t in "${!NEXT[@]}"; do
+    [[ -n "${NEXT[$t]:-}" ]] && printf '%s %s\n' "$t" "${NEXT[$t]}"
+  done
+} | sort > "$STATE_FILE"
+
+printf '\n%d/%d topic(s) synced\n' "$synced" "${#SOURCES[@]}"

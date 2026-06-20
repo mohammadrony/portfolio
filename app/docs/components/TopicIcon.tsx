@@ -1,6 +1,6 @@
 'use client';
 
-import { FaLinux, FaWindows, FaDatabase, FaCloud, FaStarAndCrescent } from 'react-icons/fa';
+import { FaLinux, FaWindows, FaDatabase, FaCloud } from 'react-icons/fa';
 import { SiDocker, SiKubernetes, SiAnsible, SiVirtualbox } from 'react-icons/si';
 
 interface Props {

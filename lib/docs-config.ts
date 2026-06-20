@@ -47,7 +47,7 @@ export const TOPICS: Record<string, TopicConfig> = {
     label: 'Database',
     description: 'MySQL, PostgreSQL, MongoDB, MSSQL, and Oracle guides',
     longDescription:
-      'Practical database guides for MySQL, PostgreSQL, MongoDB, MSSQL, and Oracle — queries, administration, and configuration.',
+      'Practical database guides for MySQL, PostgreSQL, MongoDB, MSSQL, and Oracle - queries, administration, and configuration.',
     colorClass: 'text-purple-600',
     bgClass: 'bg-purple-50',
     borderClass: 'border-purple-200',
@@ -58,7 +58,7 @@ export const TOPICS: Record<string, TopicConfig> = {
     label: 'Cloud',
     description: 'AWS, GCP, Azure, and Alibaba Cloud services',
     longDescription:
-      'Cloud platform guides covering AWS, Google Cloud, Azure, and Alibaba Cloud — CLI, services, architecture, and projects.',
+      'Cloud platform guides covering AWS, Google Cloud, Azure, and Alibaba Cloud - CLI, services, architecture, and projects.',
     colorClass: 'text-blue-600',
     bgClass: 'bg-blue-50',
     borderClass: 'border-blue-200',

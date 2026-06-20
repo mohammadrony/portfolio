@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { NavItem } from '@/lib/docs';
 import { TOPICS, TOPIC_ORDER } from '@/lib/docs-config';
@@ -15,17 +15,23 @@ interface Props {
   onClose: () => void;
 }
 
-export default function Sidebar({ currentSlug, nav, topic, allTopics, isOpen, onClose }: Props) {
-  const [expandedDirs, setExpandedDirs] = useState<Set<string>>(new Set());
+function computeExpanded(slug: string[]): Set<string> {
+  const toExpand = new Set<string>();
+  for (let i = 1; i < slug.length; i++) {
+    toExpand.add(slug.slice(0, i).join('/'));
+  }
+  return toExpand;
+}
 
-  // Auto-expand dirs that contain the current page
-  useEffect(() => {
-    const toExpand = new Set<string>();
-    for (let i = 1; i < currentSlug.length; i++) {
-      toExpand.add(currentSlug.slice(0, i).join('/'));
-    }
-    setExpandedDirs(toExpand);
-  }, [currentSlug]);
+export default function Sidebar({ currentSlug, nav, topic, allTopics, isOpen, onClose }: Props) {
+  const [expandedDirs, setExpandedDirs] = useState<Set<string>>(() => computeExpanded(currentSlug));
+  const [prevSlugKey, setPrevSlugKey] = useState(() => currentSlug.join('/'));
+  const currentSlugKey = currentSlug.join('/');
+
+  if (prevSlugKey !== currentSlugKey) {
+    setPrevSlugKey(currentSlugKey);
+    setExpandedDirs(computeExpanded(currentSlug));
+  }
 
   const toggleDir = (key: string) => {
     setExpandedDirs((prev) => {

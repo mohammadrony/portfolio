@@ -1,0 +1,48 @@
+services:
+  nginxproxymanager:
+    image: "jc21/nginx-proxy-manager:latest"
+    container_name: nginxproxymanager
+    hostname: nginxproxymanager
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "81:81"
+    environment:
+      DB_MYSQL_HOST: "mysql"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      DB_MYSQL_PASSWORD: "npm1234"
+      DB_MYSQL_NAME: "npm"
+    volumes:
+      - data:/data
+      - letsencrypt:/etc/letsencrypt
+    depends_on:
+      - mysql
+    networks:
+      - nginxproxynet
+
+  mysql:
+    image: "jc21/mariadb-aria:latest"
+    container_name: mysql
+    hostname: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "npm"
+      MYSQL_DATABASE: "npm"
+      MYSQL_USER: "npm"
+      MYSQL_PASSWORD: "npm1234"
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - nginxproxynet
+
+volumes:
+  data:
+  mysql:
+  letsencrypt:
+
+networks:
+  nginxproxynet:
+    driver: bridge

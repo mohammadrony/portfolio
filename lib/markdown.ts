@@ -8,9 +8,9 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
 
-// Rewrites relative .md links to absolute /docs/ paths so in-content links don't 404.
-// basePath is the directory that owns the current doc, e.g. /docs/database/mongo/
-function rewriteMdLinks(basePath: string) {
+const DOCS_EXTENSIONS = /\.(md|sh|bash|yaml|yml|json|toml|conf|env)$/i;
+
+function rewriteDocLinks(basePath: string) {
   return (tree: Parameters<typeof visit>[0]) => {
     visit(tree, 'element', (node: Record<string, unknown>) => {
       if (node.tagName !== 'a') return;
@@ -18,12 +18,11 @@ function rewriteMdLinks(basePath: string) {
       if (!props?.href) return;
       const href = String(props.href);
       if (href.startsWith('http') || href.startsWith('//') || href.startsWith('#')) return;
-      if (!href.includes('.md')) return;
 
       const [hrefPath, fragment] = href.split('#');
-      // Strip .md extension
-      let resolved = hrefPath.replace(/\.md$/, '');
-      // README.md → directory index (no filename in URL, just parent path)
+      if (!DOCS_EXTENSIONS.test(hrefPath)) return;
+
+      let resolved = hrefPath.replace(DOCS_EXTENSIONS, '');
       resolved = resolved.replace(/\/README$/i, '').replace(/^README$/i, '.');
 
       try {
@@ -45,7 +44,7 @@ export async function markdownToHtml(markdown: string, basePath?: string): Promi
     .use(rehypeAutolinkHeadings, { behavior: 'wrap' });
 
   if (basePath) {
-    proc = proc.use(() => rewriteMdLinks(basePath));
+    proc = proc.use(() => rewriteDocLinks(basePath));
   }
 
   const result = await proc

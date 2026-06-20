@@ -1,0 +1,102 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  # priorityClassName: first
+  # nodeName: controlplane
+  containers:
+  - name: nginx
+    image: nginx:latest
+    imagePullPolicy: Always
+    ports:
+      - containerPort: 80
+    command: [ "/bin/sh", "-c", "echo hello > /host/file"]
+    resources:
+      limits:
+        memory: 512Mi
+        cpu: "1"
+      requests:
+        memory: 256Mi
+        cpu: "0.2"
+
+    readinessProbe:
+      httpGet:
+        path: /index.html
+        port: 80
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    livenessProbe:
+      httpGet:
+        path: /index.html
+        port: 80
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 5
+
+    env:
+    - name: PROTOCOL
+      value: "http"
+    - name: PORT
+      value: "80"
+    - name: HOST
+      value: "127.0.0.1"
+    - name: SERVICE_ADDRESS
+      value: "$(PROTOCOL)://$(HOST):$(PORT)"
+
+    - name: ENV1
+      valueFrom:
+        configMapKeyRef:
+          key: key1
+          name: my-configmap
+    - name: ENV2
+      valueFrom:
+        configMapKeyRef:
+          key: key2
+          name: my-configmap
+          optional: true
+
+    - name: SECRET1
+      valueFrom:
+        secretKeyRef:
+          key: username
+          name: my-secret
+    - name: SECRET2
+      valueFrom:
+        secretKeyRef:
+          key: password
+          name: my-secret
+          optional: true
+
+    envFrom:
+    - configMapRef:
+        name: my-configmap
+    - secretRef:
+        name: my-secret
+
+    volumeMounts:
+    - name: config-file
+      mountPath: /path/config/
+    - name: secret-file
+      mountPath: /path/secret/
+    - name: host-file
+      mountPath: /host/
+
+  volumes:
+    - name: config-file
+      configMap:
+        name: my-configmap
+    - name: secret-file
+      secret:
+        secretName: my-secret
+    - name: host-file
+      hostPath:
+        path: /host/
+        type: DirectoryOrCreate
+  
+  containerLogMaxSize: 10Mi
+  containerLogMaxFiles: 7
+
+  imagePullSecrets:
+    - name: private-registry

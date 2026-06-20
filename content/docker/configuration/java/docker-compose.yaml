@@ -1,0 +1,23 @@
+services:
+  myapp:
+    image: myapp:v1.0
+    container_name: myapp
+    restart: unless-stopped
+    network_mode: 'host'
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: app.jar
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '4G'
+        reservations:
+          cpus: '0.5'
+          memory: '1G'

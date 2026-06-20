@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import {
   getDocContent,
   getTopicNav,
@@ -8,6 +8,7 @@ import {
   getNavNeighbors,
   getAllTopics,
   slugToFilePath,
+  isSlugDirectory,
 } from '@/lib/docs';
 import { markdownToHtml } from '@/lib/markdown';
 import { TOPICS } from '@/lib/docs-config';
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const topic = slug[0];
   const topicLabel = TOPICS[topic]?.label || topic;
-  const title = `${doc.meta.title} — ${topicLabel} | Md. Rony Docs`;
+  const title = `${doc.meta.title} | ${topicLabel} | Md. Rony Docs`;
   const description =
     (doc.meta.description as string) ||
     doc.content.replace(/```[\s\S]*?```/g, '').replace(/[#*`[\]()]/g, '').trim().slice(0, 155);
@@ -54,7 +55,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DocPage({ params }: Props) {
   const { slug } = await params;
   const doc = getDocContent(slug);
-  if (!doc) notFound();
+  if (!doc) {
+    if (isSlugDirectory(slug)) {
+      const parent = slug.length > 1 ? `/docs/${slug.slice(0, -1).join('/')}` : '/docs';
+      redirect(parent);
+    }
+    notFound();
+  }
 
   const topic = slug[0];
   const nav = getTopicNav(topic);
@@ -100,17 +107,11 @@ export default async function DocPage({ params }: Props) {
       <div className="flex gap-8 max-w-7xl mx-auto px-4 lg:px-8 py-8">
         {/* Main content */}
         <article className="flex-1 min-w-0 max-w-3xl">
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} /> {/* nosemgrep: react-dangerouslysetinnerhtml */}
 
           <Breadcrumb slug={slug} titles={titles} />
 
-          <div
-            className="docs-prose"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
-          />
+          <div className="docs-prose" dangerouslySetInnerHTML={{ __html: htmlContent }} /> {/* nosemgrep: react-dangerouslysetinnerhtml */}
 
           <CopyCodeButton />
           <PrevNext neighbors={neighbors} />

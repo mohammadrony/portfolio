@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Md. Rony | DevOps Engineer & Cloud Enthusiast",
   description:
-    "Portfolio of Md. Rony — a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation. Open to collaboration.",
+    "Portfolio of Md. Rony , a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation. Open to collaboration.",
   metadataBase: new URL('https://mohammadrony.com'),
   alternates: {
     canonical: '/',
@@ -35,14 +35,14 @@ export const metadata: Metadata = {
     url: 'https://mohammadrony.com',
     title: "Md. Rony | DevOps Engineer & Cloud Enthusiast",
     description:
-      "Portfolio of Md. Rony — a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation.",
+      "Portfolio of Md. Rony , a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation.",
     siteName: "Md. Rony's Portfolio",
     images: [
       {
         url: '/image.jpeg',
         width: 800,
         height: 800,
-        alt: 'Md. Rony — DevOps Engineer',
+        alt: 'Md. Rony , DevOps Engineer',
         type: 'image/jpeg',
       },
     ],
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: "Md. Rony | DevOps Engineer & Cloud Enthusiast",
     description:
-      "Portfolio of Md. Rony — a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation.",
+      "Portfolio of Md. Rony , a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation.",
     images: ['/image.jpeg'],
   },
   icons: {

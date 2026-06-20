@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import {motion } from 'framer-motion';
-import {FaLinux, FaWindows, FaDatabase, FaCloud, FaStarAndCrescent, FaBookOpen } from 'react-icons/fa';
+import {FaLinux, FaWindows, FaDatabase, FaCloud, FaBookOpen } from 'react-icons/fa';
 import {SiDocker, SiKubernetes, SiAnsible, SiVirtualbox } from 'react-icons/si';
 import ScrollReveal from './ScrollReveal';
 

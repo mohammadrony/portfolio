@@ -34,7 +34,8 @@ export default function DocsLandingPage() {
             Technical Documentation
           </h1>
           <p className="text-lg text-slate-500 max-w-xl mx-auto mb-8">
-            Personal notes and guides on DevOps, infrastructure, and more.
+            Personal notes and guides on DevOps, infrastructure, and more.{' '}
+            {totalDocs} documents across all topics.
           </p>
 
           {/* Search bar */}

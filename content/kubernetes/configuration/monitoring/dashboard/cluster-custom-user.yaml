@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cluster-custom-sa
+  namespace: kubernetes-dashboard
+---
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/service-account-token
+metadata:
+  name: cluster-custom-secret
+  namespace: kubernetes-dashboard
+  annotations:
+    kubernetes.io/service-account.name: "cluster-custom-sa"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-custom-role
+rules:
+  - apiGroups: ["*"]
+    resources:
+      [
+        "nodes",
+        "namespaces",
+        "pods",
+        "services",
+        "configmaps",
+        "secrets",
+        "pods/log",
+        "deployments",
+        "daemonsets",
+        "statefulset",
+        "replicasets",
+        "serviceaccounts",
+        "ingresses",
+        "events",
+      ]
+    verbs: ["get", "list", "watch", "update"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-custom-role-binding
+subjects:
+  - kind: ServiceAccount
+    name: cluster-custom-sa
+    namespace: kubernetes-dashboard
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-custom-role

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import ScrollReveal from './ScrollReveal';
 
 const contactInfo = [
