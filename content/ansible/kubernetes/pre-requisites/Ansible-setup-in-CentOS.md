@@ -6,7 +6,7 @@
 
 ```bash
 USER=user
-sudo usermod -aG wheel $USER 
+sudo usermod -aG wheel $USER
 sudo echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER
 ```
 

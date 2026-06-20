@@ -53,7 +53,7 @@ rabbitmq-diagnostics -q cluster_status
 Update `IP_ADDRESS` with real IP in [rabbitmq-nginx.conf](./rabbitmq-nginx.conf) file.
 
 ```bash
-cat rabbitmq-nginx.conf | sudo tee -a /etc/nginx/nginx.conf 
+cat rabbitmq-nginx.conf | sudo tee -a /etc/nginx/nginx.conf
 sudo systemctl restart nginx
 ```
 

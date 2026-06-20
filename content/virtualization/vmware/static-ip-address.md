@@ -16,10 +16,10 @@ network:
   ethernets:
     ens160:
       dhcp4: false
-      addresses: 
+      addresses:
         - 192.168.1.101/24
       nameservers:
-        addresses: 
+        addresses:
           - 8.8.8.8
           - 8.8.4.4
       routes:

@@ -141,11 +141,11 @@ html {
   ::-webkit-scrollbar-track {
     background: #1e293b;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: #475569;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     background: #64748b;
   }
@@ -185,7 +185,7 @@ html {
   .backdrop-blur-fallback {
     background-color: rgba(15, 23, 42, 0.8);
   }
-  
+
   @supports (backdrop-filter: blur(12px)) {
     .backdrop-blur-fallback {
       background-color: rgba(15, 23, 42, 0.7);
@@ -224,11 +224,11 @@ html {
   h1 {
     font-size: 2.5rem;
   }
-  
+
   h2 {
     font-size: 2rem;
   }
-  
+
   .text-xl {
     font-size: 1.125rem;
   }
@@ -547,12 +547,12 @@ pre:hover .copy-btn {
   .no-print {
     display: none !important;
   }
-  
+
   body {
     background: white !important;
     color: black !important;
   }
-  
+
   .bg-linear-to-r,
   .bg-linear-to-br {
     background: white !important;

@@ -86,38 +86,38 @@ export const designSystem = {
   // Components
   components: {
     card: `
-      bg-white/80 dark:bg-slate-800/80 
-      backdrop-blur-lg 
-      rounded-2xl 
-      p-8 
-      shadow-xl 
-      hover:shadow-2xl 
-      transition-all 
-      duration-300 
-      border 
-      border-white/20 
+      bg-white/80 dark:bg-slate-800/80
+      backdrop-blur-lg
+      rounded-2xl
+      p-8
+      shadow-xl
+      hover:shadow-2xl
+      transition-all
+      duration-300
+      border
+      border-white/20
       dark:border-slate-700/50
     `,
     button: `
-      px-6 
-      py-3 
-      rounded-xl 
-      font-semibold 
-      transition-all 
-      duration-300 
-      hover:scale-105 
-      focus:outline-none 
-      focus:ring-2 
+      px-6
+      py-3
+      rounded-xl
+      font-semibold
+      transition-all
+      duration-300
+      hover:scale-105
+      focus:outline-none
+      focus:ring-2
       focus:ring-offset-2
     `,
     section: `
-      py-20 
-      px-6 
-      bg-gradient-to-br 
-      from-blue-50/50 
-      to-purple-50/50 
-      dark:from-slate-900/30 
-      dark:to-slate-800/30 
+      py-20
+      px-6
+      bg-gradient-to-br
+      from-blue-50/50
+      to-purple-50/50
+      dark:from-slate-900/30
+      dark:to-slate-800/30
       backdrop-blur-md
     `
   }

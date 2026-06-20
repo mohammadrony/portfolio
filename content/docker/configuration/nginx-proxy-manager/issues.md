@@ -15,9 +15,9 @@
    ```
 
 3. Recreate database container
-  
+
    - Backup database
-  
+
      ```bash
      docker exec -it mysql sh
      mysqldump -u root -pnpm --all-databases > alldb.sql

@@ -47,7 +47,7 @@ services:
     networks:
       - metabasenet
     volumes:
-      - ./Bangladesh_GeoJSON:/srv 
+      - ./Bangladesh_GeoJSON:/srv
       - ./fileserver.conf:/etc/nginx/conf.d/default.conf
 
   mongo:

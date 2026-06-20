@@ -17,7 +17,7 @@ Complete setup guide from [this file](./node-exporter.md).
 Container's vm configuration from [this file](./loki.md).
 
 Start loki application
-  
+
   `docker compose up loki -d`
 
 ## Dashboard

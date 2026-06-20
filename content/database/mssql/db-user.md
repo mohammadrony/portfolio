@@ -45,7 +45,7 @@ DECLARE @DatabaseName NVARCHAR(255)
 DECLARE @SQL NVARCHAR(MAX)
 
 DECLARE db_cursor CURSOR FOR
-SELECT name FROM sys.databases 
+SELECT name FROM sys.databases
 WHERE name IN ('mydb1', 'mydb2')
 
 OPEN db_cursor

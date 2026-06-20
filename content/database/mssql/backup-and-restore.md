@@ -68,8 +68,8 @@ DECLARE @DatabaseName NVARCHAR(255)
 DECLARE @SQL NVARCHAR(MAX)
 
 DECLARE db_cursor CURSOR FOR
-SELECT name 
-FROM sys.databases 
+SELECT name
+FROM sys.databases
 WHERE name IN ('mydb1', 'mydb2')
 
 OPEN db_cursor
@@ -80,13 +80,13 @@ BEGIN
     SET @SQL = '
     USE [master];
     ALTER DATABASE [' + @DatabaseName + '] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    
+
     RESTORE DATABASE [' + @DatabaseName + ']
     FROM DISK = N''' + @BackupPath + @DatabaseName + '.BAK'' WITH RESTRICTED_USER, FILE = 1,
     MOVE N''' + @DatabaseName + ''' TO N''' + @DataPath + @DatabaseName + '.mdf'',
     MOVE N''' + @DatabaseName + '_log'' TO N''' + @DataPath + @DatabaseName + '_log.ldf'',
     NOUNLOAD, REPLACE, STATS = 5;
-    
+
     ALTER DATABASE [' + @DatabaseName + '] SET MULTI_USER;'
 
     EXEC sp_executesql @SQL
@@ -104,10 +104,10 @@ GO
 Backup and restore progress
 
 ```sql
-SELECT 
+SELECT
    session_id as SPID, command, a.text AS Query, start_time, percent_complete,
    dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time
-FROM sys.dm_exec_requests r 
-   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
-WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE') 
+FROM sys.dm_exec_requests r
+   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a
+WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
 ```

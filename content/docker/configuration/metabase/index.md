@@ -35,7 +35,7 @@ Update values in
 Apply docker compose manifest
 
 ```bash
-cd 
+cd
 docker compose -f docker-compose.yaml up -d
 ```
 
