@@ -25,11 +25,12 @@ const skillCategories: SkillCategory[] = [
     color: "from-orange-500 to-red-500",
     skills: [
       { name: "AWS", level: "advanced", category: "Infrastructure" },
-      { name: "GCP", level: "intermediate", category: "Infrastructure" },
       { name: "Linux", level: "advanced", category: "Infrastructure" },
       { name: "Docker", level: "advanced", category: "Infrastructure" },
       { name: "Kubernetes", level: "advanced", category: "Infrastructure" },
-      { name: "OpenShift", level: "intermediate", category: "Infrastructure" },
+      { name: "GCP", level: "beginner", category: "Infrastructure" },
+      { name: "Azure", level: "beginner", category: "Infrastructure" },
+      { name: "OpenShift", level: "beginner", category: "Infrastructure" },
     ]
   },
   {
@@ -37,9 +38,10 @@ const skillCategories: SkillCategory[] = [
     icon: "⚙️",
     color: "from-purple-500 to-pink-500",
     skills: [
+      { name: "Terraform", level: "intermediate", category: "Automation" },
+      { name: "Pulumi", level: "intermediate", category: "Automation" },
       { name: "Ansible", level: "advanced", category: "Automation" },
-      { name: "Bash Scripting", level: "advanced", category: "Automation" },
-      { name: "Python", level: "intermediate", category: "Automation" }
+      { name: "Helm", level: "intermediate", category: "Automation" }
     ]
   },
   {
@@ -90,16 +92,26 @@ const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    name: "Programming",
+    name: "Languages",
     icon: "💻",
     color: "from-yellow-500 to-orange-500",
     skills: [
-      { name: "JavaScript", level: "intermediate", category: "Programming" },
-      { name: "TypeScript", level: "intermediate", category: "Programming" },
-      { name: "Node.js", level: "intermediate", category: "Programming" },
-      { name: "Vue.js", level: "intermediate", category: "Programming" },
-      { name: "Dart", level: "beginner", category: "Programming" },
-      { name: "K6", level: "beginner", category: "Programming" }
+      { name: "JavaScript", level: "intermediate", category: "Languages" },
+      { name: "TypeScript", level: "intermediate", category: "Languages" },
+      { name: "Python", level: "intermediate", category: "Languages" },
+      { name: "Bash", level: "intermediate", category: "Languages" },
+      { name: "Dart", level: "beginner", category: "Languages" },
+    ]
+  },
+  {
+    name: "Frameworks",
+    icon: "🧩",
+    color: "from-teal-500 to-cyan-500",
+    skills: [
+      { name: "Vue.js", level: "intermediate", category: "Frameworks" },
+      { name: "Node.js", level: "intermediate", category: "Frameworks" },
+      { name: "Flutter", level: "intermediate", category: "Frameworks" },
+      { name: "K6", level: "beginner", category: "Frameworks" },
     ]
   }
 ];

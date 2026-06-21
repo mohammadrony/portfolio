@@ -7,7 +7,12 @@ export default function CopyCodeButton() {
     const blocks = document.querySelectorAll('pre');
 
     blocks.forEach((pre) => {
-      if (pre.querySelector('.copy-btn')) return;
+      if (pre.parentElement?.classList.contains('copy-wrapper')) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'copy-wrapper';
+      pre.parentNode?.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
 
       const btn = document.createElement('button');
       btn.className = 'copy-btn';
@@ -23,8 +28,7 @@ export default function CopyCodeButton() {
         }, 2000);
       });
 
-      pre.style.position = 'relative';
-      pre.appendChild(btn);
+      wrapper.appendChild(btn);
     });
   });
 

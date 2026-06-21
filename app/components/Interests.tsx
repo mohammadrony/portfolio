@@ -35,7 +35,7 @@ const interests = [
     color: "from-yellow-500 to-orange-500"
   },
   {
-    title: "Learning New Technologies",
+    title: "Continuous Learning",
     icon: "📚",
     description: "Continuously exploring new DevOps tools, cloud services, and best practices",
     color: "from-indigo-500 to-blue-500"
