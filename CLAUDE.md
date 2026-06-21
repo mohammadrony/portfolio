@@ -54,6 +54,7 @@ To add a topic: add to `TOPICS` + `TOPIC_ORDER` in `lib/docs-config.ts`, and add
 
 - **`next`** pinned to `^16.2.9` - fixes all HIGH CVEs present in ≤16.2.5
 - **`postcss`** forced to `>=8.5.10` in `pnpm-workspace.yaml` - fixes MEDIUM CVE
+- **`@babel/core`** forced to `>=7.29.1` in `pnpm-workspace.yaml` - fixes LOW CVE (arbitrary file read via sourceMappingURL); transitive via next and eslint plugins
 - **`js-yaml`** cannot be upgraded - `gray-matter` 4.x requires the v3 API (`safeLoad`, removed in v4). Risk accepted; content is local filesystem only, not user input.
 - **Semgrep** (`semgrep scan --config auto --error .`) passes at 0 findings. `content/` is excluded via `.semgrepignore` (example credentials in tutorial docs).
 
