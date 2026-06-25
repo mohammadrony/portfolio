@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa";
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 
@@ -96,6 +96,14 @@ export default function Hero() {
             className="flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 hover:scale-105 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
           >
             <FaFacebook className="text-xl" aria-hidden="true" /> Facebook
+          </a>
+          <a
+            href="https://www.youtube.com/@mohammadrony29"
+            target="_blank"
+            rel="noopener noreferrer me"
+            className="flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300 hover:scale-105 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+          >
+            <FaYoutube className="text-xl" aria-hidden="true" /> YouTube
           </a>
         </motion.div>
 

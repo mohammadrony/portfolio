@@ -1,7 +1,14 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import { load as yamlLoad } from 'js-yaml';
+
+function parseFrontmatter(raw: string): { data: Record<string, unknown>; content: string } {
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+  if (!match) return { data: {}, content: raw };
+  const data = (yamlLoad(match[1]) as Record<string, unknown>) ?? {};
+  return { data, content: match[2] };
+}
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
@@ -68,7 +75,7 @@ export function getDocContent(slug: string[]): { content: string; meta: DocMeta 
     };
   }
 
-  const { data, content } = matter(raw);
+  const { data, content } = parseFrontmatter(raw);
   const titleFromH1 = content.match(/^#\s+(.+)$/m)?.[1]?.trim();
   const title = (data.title as string) || titleFromH1 || slugToTitle(slug[slug.length - 1]);
   return { content, meta: { ...data, title } };
@@ -244,7 +251,7 @@ export function buildSearchIndex(): SearchRecord[] {
 function getTitle(filePath: string, fallback: string): string {
   if (!fs.existsSync(filePath)) return slugToTitle(fallback);
   const raw = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(raw);
+  const { data, content } = parseFrontmatter(raw);
   if (data.title) return data.title as string;
   const m = content.match(/^#\s+(.+)$/m);
   return m?.[1]?.trim() || slugToTitle(fallback);
