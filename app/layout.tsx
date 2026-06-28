@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import MagneticCursor from "./components/MagneticCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Md. Rony | DevOps Engineer & Cloud Enthusiast",
   description:
-    "Portfolio of Md. Rony , a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation. Open to collaboration.",
+    "Portfolio of Md. Rony, a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation. Open to collaboration.",
   metadataBase: new URL('https://mohammadrony.com'),
   alternates: {
     canonical: '/',
@@ -35,24 +36,24 @@ export const metadata: Metadata = {
     url: 'https://mohammadrony.com',
     title: "Md. Rony | DevOps Engineer & Cloud Enthusiast",
     description:
-      "Portfolio of Md. Rony , a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation.",
+      "Portfolio of Md. Rony, a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation.",
     siteName: "Md. Rony's Portfolio",
     images: [
       {
-        url: '/image.jpeg',
-        width: 800,
-        height: 800,
-        alt: 'Md. Rony , DevOps Engineer',
-        type: 'image/jpeg',
+        url: '/og-image.png',
+        width: 1731,
+        height: 909,
+        alt: 'Md. Rony - DevOps Engineer portfolio banner',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: "Md. Rony | DevOps Engineer & Cloud Enthusiast",
     description:
-      "Portfolio of Md. Rony , a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation.",
-    images: ['/image.jpeg'],
+      "Portfolio of Md. Rony, a DevOps Engineer from Bangladesh specializing in cloud infrastructure, CI/CD pipelines, Kubernetes, GitOps, and automation.",
+    images: ['/og-image.png'],
   },
   icons: {
     icon: [
@@ -132,6 +133,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <MagneticCursor />
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <script
           type="application/ld+json"

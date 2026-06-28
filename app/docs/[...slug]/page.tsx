@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import fs from 'fs';
 import { notFound, redirect } from 'next/navigation';
 import {
   getDocContent,
@@ -35,9 +36,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const topic = slug[0];
   const topicLabel = TOPICS[topic]?.label || topic;
   const title = `${doc.meta.title} | ${topicLabel} | Md. Rony Docs`;
-  const description =
-    (doc.meta.description as string) ||
-    doc.content.replace(/```[\s\S]*?```/g, '').replace(/[#*`[\]()]/g, '').trim().slice(0, 155);
+  const plainText = doc.content.replace(/```[\s\S]*?```/g, '').replace(/[#*`[\]()]/g, '').trim();
+  const description = (doc.meta.description as string) || plainText.slice(0, 155);
+  const wordCount = plainText.split(/\s+/).filter(Boolean).length;
 
   return {
     title,
@@ -48,7 +49,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `https://mohammadrony.com/docs/${slug.join('/')}`,
       type: 'article',
+      images: [{ url: '/og-image.png', width: 1731, height: 909 }],
     },
+    twitter: {
+      card: 'summary_large_image',
+      images: ['/og-image.png'],
+    },
+    ...(wordCount < 80 ? { robots: { index: false } } : {}),
   };
 }
 
@@ -71,6 +78,7 @@ export default async function DocPage({ params }: Props) {
   const topicConfig = TOPICS[topic];
   // Compute base path so relative .md links inside content are rewritten correctly
   const filePath = slugToFilePath(slug);
+  const dateModified = filePath ? fs.statSync(filePath).mtime.toISOString() : new Date().toISOString();
   const isIndex = filePath?.endsWith('index.md') ?? false;
   const dirSlug = isIndex ? slug : slug.slice(0, -1);
   const basePath = `/docs/${dirSlug.join('/')}/`;
@@ -89,6 +97,8 @@ export default async function DocPage({ params }: Props) {
     headline: doc.meta.title,
     description: doc.meta.description || '',
     url: `https://mohammadrony.com/docs/${slug.join('/')}`,
+    datePublished: dateModified,
+    dateModified,
     author: {
       '@type': 'Person',
       name: 'Md. Asaduzzaman Rony',

@@ -24,13 +24,12 @@ const skillCategories: SkillCategory[] = [
     icon: "☁️",
     color: "from-orange-500 to-red-500",
     skills: [
-      { name: "AWS", level: "advanced", category: "Infrastructure" },
       { name: "Linux", level: "advanced", category: "Infrastructure" },
       { name: "Docker", level: "advanced", category: "Infrastructure" },
       { name: "Kubernetes", level: "advanced", category: "Infrastructure" },
-      { name: "GCP", level: "beginner", category: "Infrastructure" },
-      { name: "Azure", level: "beginner", category: "Infrastructure" },
-      { name: "OpenShift", level: "beginner", category: "Infrastructure" },
+      { name: "AWS", level: "advanced", category: "Infrastructure" },
+      { name: "GCP", level: "intermediate", category: "Infrastructure" },
+      { name: "OpenShift", level: "intermediate", category: "Infrastructure" },
     ]
   },
   {
@@ -38,10 +37,10 @@ const skillCategories: SkillCategory[] = [
     icon: "⚙️",
     color: "from-purple-500 to-pink-500",
     skills: [
-      { name: "Terraform", level: "intermediate", category: "Automation" },
-      { name: "Pulumi", level: "intermediate", category: "Automation" },
       { name: "Ansible", level: "advanced", category: "Automation" },
-      { name: "Helm", level: "intermediate", category: "Automation" }
+      { name: "Bash", level: "advanced", category: "Automation" },
+      { name: "Terraform", level: "intermediate", category: "Automation" },
+      { name: "Python", level: "intermediate", category: "Automation" },
     ]
   },
   {
@@ -50,9 +49,10 @@ const skillCategories: SkillCategory[] = [
     color: "from-blue-500 to-cyan-500",
     skills: [
       { name: "Jenkins", level: "advanced", category: "DevOps" },
-      { name: "ArgoCD", level: "intermediate", category: "DevOps" },
-      { name: "GitHub Actions", level: "intermediate", category: "DevOps" },
-      { name: "Git", level: "advanced", category: "DevOps" }
+      { name: "ArgoCD", level: "advanced", category: "DevOps" },
+      { name: "GitHub Actions", level: "advanced", category: "DevOps" },
+      { name: "Helm", level: "advanced", category: "DevOps" },
+      { name: "Git", level: "advanced", category: "DevOps" },
     ]
   },
   {
@@ -62,9 +62,9 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Prometheus", level: "intermediate", category: "Observability" },
       { name: "Grafana", level: "intermediate", category: "Observability" },
-      { name: "OpenTelemetry", level: "beginner", category: "Observability" },
       { name: "Fluent Bit", level: "intermediate", category: "Observability" },
       { name: "CloudWatch", level: "intermediate", category: "Observability" },
+      { name: "OpenTelemetry", level: "intermediate", category: "Observability" },
     ]
   },
   {
@@ -85,35 +85,22 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "MySQL", level: "advanced", category: "Databases" },
       { name: "PostgreSQL", level: "intermediate", category: "Databases" },
-      { name: "MongoDB", level: "intermediate", category: "Databases" },
       { name: "Redis", level: "intermediate", category: "Databases" },
       { name: "MSSQL", level: "intermediate", category: "Databases" },
       { name: "Oracle", level: "beginner", category: "Databases" },
     ]
   },
   {
-    name: "Languages",
+    name: "Languages & Testing",
     icon: "💻",
     color: "from-yellow-500 to-orange-500",
     skills: [
       { name: "JavaScript", level: "intermediate", category: "Languages" },
-      { name: "TypeScript", level: "intermediate", category: "Languages" },
-      { name: "Python", level: "intermediate", category: "Languages" },
-      { name: "Bash", level: "intermediate", category: "Languages" },
-      { name: "Dart", level: "beginner", category: "Languages" },
+      { name: "Java", level: "intermediate", category: "Languages" },
+      { name: "Jest", level: "intermediate", category: "Languages" },
+      { name: "K6", level: "intermediate", category: "Languages" },
     ]
   },
-  {
-    name: "Frameworks",
-    icon: "🧩",
-    color: "from-teal-500 to-cyan-500",
-    skills: [
-      { name: "Vue.js", level: "intermediate", category: "Frameworks" },
-      { name: "Node.js", level: "intermediate", category: "Frameworks" },
-      { name: "Flutter", level: "intermediate", category: "Frameworks" },
-      { name: "K6", level: "beginner", category: "Frameworks" },
-    ]
-  }
 ];
 
 const levelConfig = {

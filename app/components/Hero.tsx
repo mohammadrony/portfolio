@@ -18,7 +18,7 @@ export default function Hero() {
           <div className="w-40 h-40 mx-auto mb-6 relative animate-float">
             <Image
               src="/image.jpeg"
-              alt="Md. Rony"
+              alt="Md. Rony, DevOps Engineer from Bangladesh"
               fill
               priority
               sizes="160px"
@@ -34,7 +34,7 @@ export default function Hero() {
           transition={{ delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold text-slate-800 dark:text-white mb-6 gradient-text"
         >
-          Hi, I&apos;m Rony
+          Hi, I&apos;m Rony<span className="sr-only">, Md. Rony - DevOps Engineer from Bangladesh</span>
         </motion.h1>
 
         <motion.h2

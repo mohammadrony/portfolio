@@ -9,12 +9,17 @@ import SearchModalTrigger from './components/SearchModalTrigger';
 export const metadata: Metadata = {
   title: 'Documentation | Md. Rony',
   description:
-    'Technical documentation covering Linux, Docker, Kubernetes, Database, Cloud, Windows, Virtualization and Ansible.',
+    'Personal DevOps notes by Md. Rony - practical guides on Kubernetes, Docker, Linux, AWS, and CI/CD from a CKA-certified engineer.',
   alternates: { canonical: '/docs' },
   openGraph: {
     title: 'Documentation | Md. Rony',
-    description: 'Comprehensive technical docs: Linux, Docker, Kubernetes, Cloud, and more.',
+    description: 'Personal DevOps notes by Md. Rony - practical guides on Kubernetes, Docker, Linux, AWS, and CI/CD from a CKA-certified engineer.',
     url: 'https://mohammadrony.com/docs',
+    images: [{ url: '/og-image.png', width: 1731, height: 909 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image.png'],
   },
 };
 
