@@ -38,7 +38,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = `${doc.meta.title} | ${topicLabel} | Md. Rony Docs`;
   const plainText = doc.content.replace(/```[\s\S]*?```/g, '').replace(/[#*`[\]()]/g, '').trim();
   const description = (doc.meta.description as string) || plainText.slice(0, 155);
-  const wordCount = plainText.split(/\s+/).filter(Boolean).length;
+  // Synced source files (yaml/sh/json/etc.) are code dumps, not articles - always noindex.
+  const filePath = slugToFilePath(slug);
+  const isCodeFile = !filePath?.endsWith('.md');
 
   return {
     title,
@@ -55,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       images: ['/og-image.png'],
     },
-    ...(wordCount < 80 ? { robots: { index: false } } : {}),
+    ...(isCodeFile ? { robots: { index: false } } : {}),
   };
 }
 
