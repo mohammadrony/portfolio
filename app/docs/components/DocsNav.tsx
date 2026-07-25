@@ -6,9 +6,12 @@ import SearchModal from './SearchModal';
 
 interface Props {
   onMenuClick: () => void;
+  mobileSidebarOpen: boolean;
+  desktopSidebarOpen: boolean;
+  onToggleDesktopSidebar: () => void;
 }
 
-export default function DocsNav({ onMenuClick }: Props) {
+export default function DocsNav({ onMenuClick, mobileSidebarOpen, desktopSidebarOpen, onToggleDesktopSidebar }: Props) {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
@@ -18,10 +21,24 @@ export default function DocsNav({ onMenuClick }: Props) {
         <button
           onClick={onMenuClick}
           className="lg:hidden p-2 -ml-1 rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-100"
-          aria-label="Open navigation"
+          aria-label={mobileSidebarOpen ? 'Close navigation' : 'Open navigation'}
+          aria-pressed={mobileSidebarOpen}
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
             <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+
+        {/* Desktop sidebar toggle */}
+        <button
+          onClick={onToggleDesktopSidebar}
+          className="hidden lg:flex p-2 -ml-1 rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-100"
+          aria-label={desktopSidebarOpen ? 'Hide sidebar' : 'Show sidebar'}
+          aria-pressed={desktopSidebarOpen}
+        >
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <path d="M9 4v16"/>
           </svg>
         </button>
 

@@ -13,6 +13,7 @@ interface Props {
   allTopics: string[];
   isOpen: boolean;
   onClose: () => void;
+  desktopOpen: boolean;
 }
 
 function computeExpanded(slug: string[]): Set<string> {
@@ -23,7 +24,7 @@ function computeExpanded(slug: string[]): Set<string> {
   return toExpand;
 }
 
-export default function Sidebar({ currentSlug, nav, topic, allTopics, isOpen, onClose }: Props) {
+export default function Sidebar({ currentSlug, nav, topic, allTopics, isOpen, onClose, desktopOpen }: Props) {
   const [expandedDirs, setExpandedDirs] = useState<Set<string>>(() => computeExpanded(currentSlug));
   const [prevSlugKey, setPrevSlugKey] = useState(() => currentSlug.join('/'));
   const currentSlugKey = currentSlug.join('/');
@@ -42,7 +43,14 @@ export default function Sidebar({ currentSlug, nav, topic, allTopics, isOpen, on
     });
   };
 
-  const orderedTopics = TOPIC_ORDER.filter((t) => allTopics.includes(t));
+  const contentProps = {
+    currentSlug,
+    nav,
+    topic,
+    allTopics,
+    expandedDirs,
+    onToggle: toggleDir,
+  };
 
   return (
     <>
@@ -55,17 +63,16 @@ export default function Sidebar({ currentSlug, nav, topic, allTopics, isOpen, on
         />
       )}
 
+      {/* Mobile drawer */}
       <aside
         className={`
           fixed top-0 left-0 z-30 h-full w-72 bg-white border-r border-slate-200
-          transform transition-transform duration-200
-          lg:sticky lg:top-16 lg:z-auto lg:h-[calc(100vh-4rem)] lg:translate-x-0
+          transform transition-transform duration-200 lg:hidden
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           overflow-y-auto
         `}
       >
-        {/* Mobile header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 lg:hidden">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
           <span className="font-semibold text-slate-900">Documentation</span>
           <button
             onClick={onClose}
@@ -78,70 +85,102 @@ export default function Sidebar({ currentSlug, nav, topic, allTopics, isOpen, on
           </button>
         </div>
 
-        {/* Topic switcher */}
-        <div className="px-3 pt-4 pb-2">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2 px-1">Topics</p>
-          <div className="grid grid-cols-2 gap-1">
-            {orderedTopics.map((t) => {
-              const config = TOPICS[t];
-              const isActive = t === topic;
-              return (
-                <Link
-                  key={t}
-                  href={`/docs/${t}`}
-                  onClick={onClose}
-                  className={`
-                    flex items-center gap-1.5 px-2 py-1.5 rounded-md text-xs font-medium transition-colors
-                    ${isActive
-                      ? `${config.bgClass} ${config.textClass}`
-                      : 'text-slate-600 hover:bg-slate-100'
-                    }
-                  `}
-                >
-                  <span className={isActive ? config.textClass : 'text-slate-400'}>
-                    <TopicIcon topic={t} className="w-3.5 h-3.5" />
-                  </span>
-                  {config?.label || t}
-                </Link>
-              );
-            })}
-          </div>
+        <SidebarContent {...contentProps} onNavigate={onClose} />
+      </aside>
+
+      {/* Desktop collapsible column */}
+      <div
+        className={`
+          hidden lg:block flex-shrink-0 overflow-hidden transition-[width] duration-200
+          ${desktopOpen ? 'w-72' : 'w-0'}
+        `}
+      >
+        <aside className="sticky top-16 h-[calc(100vh-4rem)] w-72 bg-white border-r border-slate-200 overflow-y-auto">
+          <SidebarContent {...contentProps} onNavigate={() => {}} />
+        </aside>
+      </div>
+    </>
+  );
+}
+
+interface ContentProps {
+  currentSlug: string[];
+  nav: NavItem[];
+  topic: string;
+  allTopics: string[];
+  expandedDirs: Set<string>;
+  onToggle: (key: string) => void;
+  onNavigate: () => void;
+}
+
+function SidebarContent({ currentSlug, nav, topic, allTopics, expandedDirs, onToggle, onNavigate }: ContentProps) {
+  const orderedTopics = TOPIC_ORDER.filter((t) => allTopics.includes(t));
+
+  return (
+    <>
+      {/* Topic switcher */}
+      <div className="px-3 pt-4 pb-2">
+        <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2 px-1">Topics</p>
+        <div className="grid grid-cols-2 gap-1">
+          {orderedTopics.map((t) => {
+            const config = TOPICS[t];
+            const isActive = t === topic;
+            return (
+              <Link
+                key={t}
+                href={`/docs/${t}`}
+                onClick={onNavigate}
+                className={`
+                  flex items-center gap-1.5 px-2 py-1.5 rounded-md text-xs font-medium transition-colors
+                  ${isActive
+                    ? `${config.bgClass} ${config.textClass}`
+                    : 'text-slate-600 hover:bg-slate-100'
+                  }
+                `}
+              >
+                <span className={isActive ? config.textClass : 'text-slate-400'}>
+                  <TopicIcon topic={t} className="w-3.5 h-3.5" />
+                </span>
+                {config?.label || t}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="border-t border-slate-100 mx-3 my-2" />
+
+      {/* Current topic nav */}
+      <nav className="px-3 pb-8" aria-label="Documentation navigation">
+        <div className="mb-1">
+          <Link
+            href={`/docs/${topic}`}
+            onClick={onNavigate}
+            className={`
+              flex items-center gap-2 px-2 py-1.5 rounded-md text-sm font-semibold transition-colors
+              ${currentSlug.length === 1
+                ? `${TOPICS[topic]?.bgClass} ${TOPICS[topic]?.textClass}`
+                : 'text-slate-700 hover:bg-slate-100'
+              }
+            `}
+          >
+            <span className={TOPICS[topic]?.textClass}>
+              <TopicIcon topic={topic} className="w-4 h-4" />
+            </span>
+            {TOPICS[topic]?.label || topic}
+          </Link>
         </div>
 
-        <div className="border-t border-slate-100 mx-3 my-2" />
-
-        {/* Current topic nav */}
-        <nav className="px-3 pb-8" aria-label="Documentation navigation">
-          <div className="mb-1">
-            <Link
-              href={`/docs/${topic}`}
-              onClick={onClose}
-              className={`
-                flex items-center gap-2 px-2 py-1.5 rounded-md text-sm font-semibold transition-colors
-                ${currentSlug.length === 1
-                  ? `${TOPICS[topic]?.bgClass} ${TOPICS[topic]?.textClass}`
-                  : 'text-slate-700 hover:bg-slate-100'
-                }
-              `}
-            >
-              <span className={TOPICS[topic]?.textClass}>
-                <TopicIcon topic={topic} className="w-4 h-4" />
-              </span>
-              {TOPICS[topic]?.label || topic}
-            </Link>
-          </div>
-
-          <NavTree
-            items={nav}
-            currentSlug={currentSlug}
-            expandedDirs={expandedDirs}
-            onToggle={toggleDir}
-            onNavigate={onClose}
-            depth={0}
-            topicConfig={TOPICS[topic]}
-          />
-        </nav>
-      </aside>
+        <NavTree
+          items={nav}
+          currentSlug={currentSlug}
+          expandedDirs={expandedDirs}
+          onToggle={onToggle}
+          onNavigate={onNavigate}
+          depth={0}
+          topicConfig={TOPICS[topic]}
+        />
+      </nav>
     </>
   );
 }
