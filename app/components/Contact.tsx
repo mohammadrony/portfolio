@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaLinkedin, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaYoutube } from "react-icons/fa";
 import ScrollReveal from './ScrollReveal';
 
 const contactInfo = [
@@ -11,13 +11,6 @@ const contactInfo = [
     value: "mohammadronyku@gmail.com",
     link: "mailto:mohammadronyku@gmail.com",
     color: "from-red-500 to-pink-500"
-  },
-  {
-    icon: FaWhatsapp,
-    title: "WhatsApp",
-    value: "+880 1521-255638",
-    link: "https://wa.me/8801521255638",
-    color: "from-green-500 to-green-600"
   },
   {
     icon: FaLinkedin,
