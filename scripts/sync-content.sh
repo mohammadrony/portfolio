@@ -21,6 +21,15 @@ declare -A SOURCES=(
   [windows]="Windows"
 )
 
+TEXT_NAMES=(-iname "*.md" -o -iname "*.sh" -o -iname "*.bash" -o -iname "*.yaml"
+  -o -iname "*.yml" -o -iname "*.json" -o -iname "*.toml" -o -iname "*.conf")
+IMAGE_NAMES=(-iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg"
+  -o -iname "*.gif" -o -iname "*.svg" -o -iname "*.webp")
+
+# text renders inline as prose/code blocks and must stay small; images are served as-is
+TEXT_MAX_SIZE="200k"
+IMAGE_MAX_SIZE="5M"
+
 RSYNC_INCLUDES=(
   --include="*/"
   --include="*.md"
@@ -79,12 +88,15 @@ for topic in $(printf '%s\n' "${!SOURCES[@]}" | sort); do
   mkdir -p "$dst"
 
   # --delete removes files gone from source (handles renames: old gone, new added)
-  # max-size is generous enough for doc screenshots, still guards against stray large binaries
   rsync -a --delete --prune-empty-dirs \
-    --max-size=5m \
     --exclude=".git/" --exclude="node_modules/" \
     "${RSYNC_INCLUDES[@]}" \
     "$src/" "$dst/"
+
+  # rsync can't filter by extension+size together, so prune oversize files after the fact
+  find "$dst" -type f \( "${TEXT_NAMES[@]}" \) -size "+${TEXT_MAX_SIZE}" -delete
+  find "$dst" -type f \( "${IMAGE_NAMES[@]}" \) -size "+${IMAGE_MAX_SIZE}" -delete
+  find "$dst" -depth -type d -empty -delete
 
   # README.md -> index.md: rename if no index.md exists, else drop the README
   while IFS= read -r -d '' readme; do
