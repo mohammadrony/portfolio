@@ -48,6 +48,27 @@ function isUnderContentDir(resolvedPath: string): boolean {
   return resolvedPath === CONTENT_DIR || resolvedPath.startsWith(CONTENT_DIR + path.sep);
 }
 
+export const IMAGE_MIME_TYPES: Record<string, string> = {
+  '.png':  'image/png',
+  '.jpg':  'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.gif':  'image/gif',
+  '.svg':  'image/svg+xml',
+  '.webp': 'image/webp',
+};
+
+// Resolves a doc-relative asset path (e.g. image src slug) to an absolute file
+// path, returning null if it escapes content/ or isn't a recognized image type.
+export function resolveAssetPath(slug: string[]): { filePath: string; mimeType: string } | null {
+  const resolved = path.resolve(CONTENT_DIR, ...slug); // nosemgrep: path-join-resolve-traversal
+  if (!isUnderContentDir(resolved)) return null;
+  const ext = path.extname(resolved).toLowerCase();
+  const mimeType = IMAGE_MIME_TYPES[ext];
+  if (!mimeType) return null;
+  if (!fs.existsSync(resolved) || !fs.statSync(resolved).isFile()) return null;
+  return { filePath: resolved, mimeType };
+}
+
 export function slugToFilePath(slug: string[]): string | null {
   const base = path.resolve(CONTENT_DIR, ...slug); // nosemgrep: path-join-resolve-traversal
   if (!isUnderContentDir(base)) return null;

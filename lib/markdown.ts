@@ -9,6 +9,7 @@ import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
 
 const DOCS_EXTENSIONS = /\.(md|sh|bash|yaml|yml|json|toml|conf|env)$/i;
+const IMAGE_EXTENSIONS = /\.(png|jpe?g|gif|svg|webp)$/i;
 
 function rewriteDocLinks(basePath: string) {
   return (tree: Parameters<typeof visit>[0]) => {
@@ -35,6 +36,28 @@ function rewriteDocLinks(basePath: string) {
   };
 }
 
+// Doc-relative image paths (e.g. ./images/foo.png) are resolved against the
+// content/ dir and pointed at the /api/docs-assets route that serves them.
+function rewriteImagePaths(basePath: string) {
+  return (tree: Parameters<typeof visit>[0]) => {
+    visit(tree, 'element', (node: Record<string, unknown>) => {
+      if (node.tagName !== 'img') return;
+      const props = node.properties as Record<string, unknown> | undefined;
+      if (!props?.src) return;
+      const src = String(props.src);
+      if (src.startsWith('http') || src.startsWith('//') || src.startsWith('data:')) return;
+      if (!IMAGE_EXTENSIONS.test(src)) return;
+
+      try {
+        const url = new URL(src, `http://x${basePath}`);
+        props.src = url.pathname.replace(/^\/docs\//, '/api/docs-assets/');
+      } catch {
+        // leave src unchanged on parse failure
+      }
+    });
+  };
+}
+
 export async function markdownToHtml(markdown: string, basePath?: string): Promise<string> {
   let proc = unified()
     .use(remarkParse)
@@ -45,6 +68,7 @@ export async function markdownToHtml(markdown: string, basePath?: string): Promi
 
   if (basePath) {
     proc = proc.use(() => rewriteDocLinks(basePath));
+    proc = proc.use(() => rewriteImagePaths(basePath));
   }
 
   const result = await proc

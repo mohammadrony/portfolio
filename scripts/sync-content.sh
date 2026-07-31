@@ -29,6 +29,8 @@ RSYNC_INCLUDES=(
   --include="*.json"
   --include="*.toml"
   --include="*.conf"
+  --include="*.png" --include="*.jpg" --include="*.jpeg"
+  --include="*.gif" --include="*.svg" --include="*.webp"
   --exclude="*"
 )
 
@@ -77,8 +79,9 @@ for topic in $(printf '%s\n' "${!SOURCES[@]}" | sort); do
   mkdir -p "$dst"
 
   # --delete removes files gone from source (handles renames: old gone, new added)
+  # max-size is generous enough for doc screenshots, still guards against stray large binaries
   rsync -a --delete --prune-empty-dirs \
-    --max-size=200k \
+    --max-size=5m \
     --exclude=".git/" --exclude="node_modules/" \
     "${RSYNC_INCLUDES[@]}" \
     "$src/" "$dst/"
