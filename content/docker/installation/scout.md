@@ -1,6 +1,8 @@
 # Docker Scout
 
-Installation
+Install Docker Scout and scan images for vulnerabilities and recommendations.
+
+## Installation
 
 ```bash
 curl -LO https://raw.githubusercontent.com/docker/scout-cli/main/install.sh

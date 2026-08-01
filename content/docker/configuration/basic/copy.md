@@ -1,5 +1,7 @@
 # Docker cp
 
+docker cp examples: copy files into a container, pull out logs, and stream a log through grep.
+
 [Documentation](https://docs.docker.com/reference/cli/docker/container/cp/)
 
 ```bash
