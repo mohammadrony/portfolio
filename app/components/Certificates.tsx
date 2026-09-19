@@ -30,14 +30,6 @@ export default function Certificates() {
                 </h3>
                 <p className="text-green-100 mb-4 text-lg">The Linux Foundation</p>
                 <p className="text-white font-semibold text-lg">Sep 2024 - Sep 2026</p>
-                <a
-                  href="https://www.credly.com/badges/b075342a-283a-4067-a2d6-cf4c7b114a26"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-4 px-4 py-2 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-500"
-                >
-                  View Certificate
-                </a>
               </div>
             </div>
           </ScrollReveal>
