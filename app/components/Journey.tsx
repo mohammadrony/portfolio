@@ -18,20 +18,36 @@ const journeyItems: JourneyItem[] = [
   {
     id: 1,
     title: "Professional",
-    role: "DevOps & QA Engineer",
+    role: "DevOps Engineer",
     company: "Dviz Technologies Inc.",
     companyUrl: "https://dviz.tech",
     period: "Nov 2025 - Present",
     icon: "💼",
     highlights: [
-      "Implemented Helm charts and GitOps with ArgoCD",
-      "Implemented security best practice with CI/CD pipeline",
-      "Managed application deployment in RedHat OpenShift cluster",
-      "Deployed application stack in GCP and AWS",
+      "Architected multi-region AWS EKS with active/standby DR, Terraform, and ArgoCD App-of-Apps.",
+      "Built automated CI/CD pipelines with SAST/DAST, Cosign container signing, and DefectDojo triage.",
+      "Configured NVIDIA GPU Operator with time-slicing, Karpenter, and KEDA for AI/OCR workloads.",
+      "Automated SOC 2 Type II and ISO 27001 compliance evidence collection with Drata.",
+      "Deployed Grafana LGTM observability, WireGuard VPN private access, and Kyverno policies."
     ]
   },
   {
     id: 2,
+    title: "Professional",
+    role: "DevOps Engineer (Part-time)",
+    company: "Slangit",
+    companyUrl: "https://slangit.com",
+    period: "Nov 2025 - Present",
+    icon: "💼",
+    highlights: [
+      "Architected Microsoft Azure cloud infrastructure with secure VNets and identity governance.",
+      "Automated infrastructure provisioning utilizing modular Azure Bicep and Terraform.",
+      "Operated enterprise container workloads on Red Hat OpenShift, managing RBAC and ingress.",
+      "Established multi-cluster observability, health monitoring, and operational runbooks."
+    ]
+  },
+  {
+    id: 3,
     title: "Professional",
     role: "Junior DevOps Engineer",
     company: "Dynamic Solution Innovators Ltd.",
@@ -48,7 +64,7 @@ const journeyItems: JourneyItem[] = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Training",
     role: "Trainee DevOps & Cloud Engineer",
     company: "BJIT Academy Ltd.",
@@ -63,7 +79,7 @@ const journeyItems: JourneyItem[] = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     title: "Education",
     role: "B.Sc. in Computer Science and Engineering",
     company: "Khulna University",

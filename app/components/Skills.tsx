@@ -24,89 +24,83 @@ const skillCategories: SkillCategory[] = [
     icon: "☁️",
     color: "from-orange-500 to-red-500",
     skills: [
-      { name: "Linux", level: "advanced", category: "Infrastructure" },
-      { name: "Docker", level: "advanced", category: "Infrastructure" },
-      { name: "Kubernetes", level: "advanced", category: "Infrastructure" },
-      { name: "AWS", level: "advanced", category: "Infrastructure" },
-      { name: "GCP", level: "intermediate", category: "Infrastructure" },
-      { name: "OpenShift", level: "intermediate", category: "Infrastructure" },
+      { name: "Kubernetes (EKS, AKS)", level: "advanced", category: "Infrastructure" },
+      { name: "AWS (EKS, VPC, RDS)", level: "advanced", category: "Infrastructure" },
+      { name: "Microsoft Azure (AKS, APIM)", level: "advanced", category: "Infrastructure" },
+      { name: "Red Hat OpenShift", level: "intermediate", category: "Infrastructure" },
+      { name: "Google Cloud Platform (GCP)", level: "intermediate", category: "Infrastructure" },
+      { name: "Linux & Docker", level: "advanced", category: "Infrastructure" },
     ]
   },
   {
-    name: "IaC & Automation",
+    name: "IaC & GitOps Delivery",
     icon: "⚙️",
     color: "from-purple-500 to-pink-500",
     skills: [
-      { name: "Ansible", level: "advanced", category: "Automation" },
-      { name: "Bash", level: "advanced", category: "Automation" },
-      { name: "Terraform", level: "intermediate", category: "Automation" },
-      { name: "Python", level: "intermediate", category: "Automation" },
+      { name: "Terraform", level: "advanced", category: "Automation" },
+      { name: "Azure Bicep", level: "advanced", category: "Automation" },
+      { name: "ArgoCD & App-of-Apps", level: "advanced", category: "DevOps" },
+      { name: "Kargo & Argo Workflows", level: "intermediate", category: "DevOps" },
+      { name: "Helm & Kustomize", level: "advanced", category: "DevOps" },
+      { name: "GitHub Actions & OIDC", level: "advanced", category: "DevOps" },
+      { name: "Ansible & Bash", level: "advanced", category: "Automation" },
     ]
   },
   {
-    name: "CI/CD & DevOps",
-    icon: "🔄",
-    color: "from-blue-500 to-cyan-500",
-    skills: [
-      { name: "Jenkins", level: "advanced", category: "DevOps" },
-      { name: "ArgoCD", level: "advanced", category: "DevOps" },
-      { name: "GitHub Actions", level: "advanced", category: "DevOps" },
-      { name: "Helm", level: "advanced", category: "DevOps" },
-      { name: "Git", level: "advanced", category: "DevOps" },
-    ]
-  },
-  {
-    name: "Observability",
-    icon: "📊",
-    color: "from-green-500 to-emerald-500",
-    skills: [
-      { name: "Prometheus", level: "intermediate", category: "Observability" },
-      { name: "Grafana", level: "intermediate", category: "Observability" },
-      { name: "Fluent Bit", level: "intermediate", category: "Observability" },
-      { name: "CloudWatch", level: "intermediate", category: "Observability" },
-      { name: "OpenTelemetry", level: "intermediate", category: "Observability" },
-    ]
-  },
-  {
-    name: "Security",
+    name: "DevSecOps & Zero-Trust",
     icon: "🔒",
     color: "from-red-500 to-rose-500",
     skills: [
-      { name: "HashiCorp Vault", level: "intermediate", category: "Security" },
-      { name: "Trivy", level: "intermediate", category: "Security" },
-      { name: "RBAC", level: "intermediate", category: "Security" },
-      { name: "Network Policies", level: "intermediate", category: "Security" },
+      { name: "HashiCorp Vault & ESO", level: "advanced", category: "Security" },
+      { name: "Kyverno Admission Policies", level: "intermediate", category: "Security" },
+      { name: "Cosign & SBOM Signing", level: "intermediate", category: "Security" },
+      { name: "DefectDojo Vulnerability Triage", level: "intermediate", category: "Security" },
+      { name: "NetworkPolicies & WireGuard", level: "advanced", category: "Security" },
+      { name: "SOC 2 & ISO 27001", level: "intermediate", category: "Security" },
     ]
   },
   {
-    name: "Databases",
+    name: "AI Infrastructure & Scaling",
+    icon: "🧠",
+    color: "from-indigo-500 to-purple-500",
+    skills: [
+      { name: "NVIDIA GPU Operator (Time-Slicing)", level: "intermediate", category: "AI" },
+      { name: "Karpenter Node Autoscaling", level: "advanced", category: "Scaling" },
+      { name: "KEDA Event-Driven Scaling", level: "advanced", category: "Scaling" },
+      { name: "Ollama LLM Serving", level: "intermediate", category: "AI" },
+      { name: "LiteLLM & MinIO Object Storage", level: "intermediate", category: "AI" },
+    ]
+  },
+  {
+    name: "Observability & Performance",
+    icon: "📊",
+    color: "from-green-500 to-emerald-500",
+    skills: [
+      { name: "Grafana LGTM Stack", level: "advanced", category: "Observability" },
+      { name: "Prometheus & Alertmanager", level: "advanced", category: "Observability" },
+      { name: "Fluent Bit & CloudWatch", level: "intermediate", category: "Observability" },
+      { name: "Azure Log Analytics (DCE/DCR)", level: "intermediate", category: "Observability" },
+      { name: "k6 Load Testing", level: "intermediate", category: "Testing" },
+    ]
+  },
+  {
+    name: "Databases & Runtimes",
     icon: "🗄️",
-    color: "from-indigo-500 to-blue-500",
+    color: "from-blue-500 to-cyan-500",
     skills: [
+      { name: "PostgreSQL", level: "advanced", category: "Databases" },
+      { name: "Redis", level: "advanced", category: "Databases" },
       { name: "MySQL", level: "advanced", category: "Databases" },
-      { name: "PostgreSQL", level: "intermediate", category: "Databases" },
-      { name: "Redis", level: "intermediate", category: "Databases" },
-      { name: "MSSQL", level: "intermediate", category: "Databases" },
-      { name: "Oracle", level: "beginner", category: "Databases" },
-    ]
-  },
-  {
-    name: "Languages & Testing",
-    icon: "💻",
-    color: "from-yellow-500 to-orange-500",
-    skills: [
-      { name: "JavaScript", level: "intermediate", category: "Languages" },
-      { name: "Java", level: "intermediate", category: "Languages" },
-      { name: "Jest", level: "intermediate", category: "Languages" },
-      { name: "K6", level: "intermediate", category: "Languages" },
+      { name: "Python", level: "intermediate", category: "Languages" },
+      { name: "Go", level: "intermediate", category: "Languages" },
     ]
   },
 ];
 
 const levelConfig = {
-  beginner:     { dots: 1, label: 'Beginner',     color: 'bg-slate-400 dark:bg-slate-500' },
+  beginner: { dots: 1, label: 'Beginner', color: 'bg-slate-400 dark:bg-slate-500' },
   intermediate: { dots: 2, label: 'Intermediate', color: 'bg-blue-500' },
-  advanced:     { dots: 3, label: 'Advanced',     color: 'bg-emerald-500' },
+  advanced: { dots: 3, label: 'Advanced', color: 'bg-emerald-500' },
 };
 
 function SkillChip({ skill, index }: { skill: Skill; index: number }) {

@@ -18,43 +18,43 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "eMarket",
-    description: "Full-stack e-commerce application with Vue.js frontend, Node.js backend, MySQL database, and Stripe payment integration. Implemented automated testing with Jest.",
-    tech: ["Vue.js", "Vuex", "Node.js", "MySQL", "Stripe", "Jest"],
-    category: "Full-Stack",
-    icon: "🛒",
-    github: "https://github.com/mohammadrony/emarket",
-    color: "from-purple-500 to-indigo-500"
+    title: "AI Platform Infrastructure",
+    description: "Multi-region Kubernetes platform on AWS EKS with automated GitOps delivery, pipeline security scanning, and Grafana observability.",
+    tech: ["AWS EKS", "Terraform", "ArgoCD", "Vault", "Grafana"],
+    category: "Platform & DevSecOps",
+    icon: "🤖",
+    github: "https://github.com/mohammadrony",
+    color: "from-blue-600 to-indigo-600"
   },
   {
     id: 2,
-    title: "Smart Diary",
-    description: "Flutter mobile application for task and note management with Node.js backend, TypeScript, and MongoDB. Built using GetX framework.",
-    tech: ["Flutter", "GetX", "Node.js", "TypeScript", "MongoDB"],
-    category: "Mobile",
-    icon: "📱",
-    github: "https://github.com/mohammadrony/smart-diary",
-    color: "from-blue-500 to-cyan-500"
+    title: "Document Processing Platform",
+    description: "GPU-enabled Kubernetes cluster on AWS for document extraction workloads, using Karpenter for node autoscaling and in-cluster CI/CD.",
+    tech: ["AWS EKS", "Karpenter", "KEDA", "NVIDIA GPUs", "GitHub Actions"],
+    category: "AI & Kubernetes",
+    icon: "📄",
+    github: "https://github.com/mohammadrony",
+    color: "from-emerald-500 to-teal-600"
   },
   {
     id: 3,
-    title: "GitOps Practice",
-    description: "GitOps workflow implementation using ArgoCD for Blue-Green and Canary deployment strategies on Kubernetes clusters.",
-    tech: ["ArgoCD", "Kubernetes", "GitOps", "Docker"],
-    category: "DevOps",
-    icon: "🚀",
-    github: "https://github.com/mohammadrony/argo-practice",
-    color: "from-orange-500 to-red-500"
+    title: "Azure Kubernetes Migration",
+    description: "Migrated legacy virtual machine services to AKS with modular Bicep templates, automated environment promotion, and secret management.",
+    tech: ["Azure AKS", "Bicep", "ArgoCD", "Key Vault", "KEDA"],
+    category: "Cloud Migration & IaC",
+    icon: "☁️",
+    github: "https://github.com/mohammadrony",
+    color: "from-sky-500 to-blue-700"
   },
   {
     id: 4,
-    title: "Ansible Playbook",
-    description: "Ansible playbook for configuring Kubernetes cluster and Jenkins server on Linux systems. Automates infrastructure setup.",
-    tech: ["Ansible", "YAML", "Linux", "Jenkins", "Kubernetes"],
-    category: "Automation",
-    icon: "⚙️",
-    github: "https://github.com/mohammadrony/ansible-playbook",
-    color: "from-green-500 to-teal-500"
+    title: "Financial Integration Gateway",
+    description: "Multi-client API gateway using Azure APIM and Container Apps with static egress allowlisting and automated health checks.",
+    tech: ["Azure APIM", "Container Apps", "Terraform", "OIDC", "k6"],
+    category: "API & Container Apps",
+    icon: "💳",
+    github: "https://github.com/mohammadrony",
+    color: "from-purple-600 to-pink-600"
   }
 ];
 

@@ -1,7 +1,7 @@
 % Build: latexmk -pdf main.tex
 % Deps:  sudo apt install texlive-latex-extra texlive-fonts-extra
 \documentclass[a4paper,10pt]{article}
-\usepackage[margin=0.6in]{geometry}
+\usepackage[margin=0.4in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -23,73 +23,91 @@
 
 \begin{center}
     {\LARGE \textbf{Md. Asaduzzaman Rony}}\\
-    \vspace{3pt}
+    \vspace{2pt}
     \href{mailto:mohammadronyku@gmail.com}{mohammadronyku@gmail.com} $\vert$
     +8801521255638 $\vert$
     Dhaka, Bangladesh\\
     \href{https://mohammadrony.com}{mohammadrony.com} $\vert$
-    \href{https://github.com/mohammadrony}{github.com/mohammadrony}
+    \href{https://github.com/mohammadrony}{github.com/mohammadrony} $\vert$
+    \href{https://www.linkedin.com/in/mohammadrony/}{linkedin.com/in/mohammadrony}
 \end{center}
 
 %------------------------------------------------------------
+\vspace{-6pt}
 \section*{Summary}
 \hrule
-DevOps Engineer with 3+ years of experience designing, automating, and securing cloud infrastructure across AWS, Azure, and OpenShift. Skilled in container orchestration (Kubernetes, Docker), Infrastructure as Code (Terraform), and observability solutions for reliable systems. Experienced in GitOps with ArgoCD, dynamic autoscaling with Karpenter, zero-trust secrets management with Vault, and automated CI/CD pipelines.
+\vspace{2pt}
+DevOps and Platform Engineer with 3+ years of experience designing, automating, and securing cloud infrastructure across AWS, Azure, and GCP. Skilled in container orchestration (Kubernetes, OpenShift), Infrastructure as Code (Terraform, Bicep), and observability solutions for reliable systems. Experienced in GitOps with ArgoCD, dynamic autoscaling with Karpenter, zero-trust secrets management with Vault, and AI inference workloads.
 
 %------------------------------------------------------------
+\vspace{-4pt}
 \section*{Experience}
 \hrule
+\vspace{2pt}
 \href{https://dviz.tech}{\textbf{Dviz Technologies Inc.}}\quad\href{https://dviz.tech}{\raisebox{-0.4em}{\includegraphics[height=1.8em]{dviz.jpeg}}}
 \hfill \textit{DevOps Engineer} \\
 \textit{Nov 2025 -- Present}
-\begin{itemize}[leftmargin=*, itemsep=0.2em, topsep=0pt]
-    \item Deployed and managed scalable infrastructure on AWS, Azure, and OpenShift with autoscaling Kubernetes.
-    \item Configured node autoscaling using Karpenter and KEDA on AWS EKS to optimize compute resources.
-    \item Built GitOps CI/CD workflows with ArgoCD and Helm for auditable, repeatable deployments.
-    \item Managed containerized workloads with Docker and Kubernetes across multi-cloud environments.
-    \item Integrated HashiCorp Vault and External Secrets Operator for secrets management and rotation.
-    \item Enforced cluster security guardrails with Kyverno and network policies to secure pod communications.
-    \item Applied SAST and SCA scanning in the pipeline to mitigate vulnerabilities, following a shift-left approach.
-    \item Built observability with OpenTelemetry and Grafana stack, including log collection and alerting for audit trails.
-    \item Configured NVIDIA GPU Operator to enable GPU acceleration for containerized AI inference workloads.
+\begin{itemize}[leftmargin=*, itemsep=0.08em, topsep=0pt]
+    \item Deployed and managed scalable multi-tenant infrastructure on AWS and GCP with autoscaling Kubernetes (EKS).
+    \item Configured node autoscaling using Karpenter and KEDA on AWS EKS to optimize compute resources and cloud spend.
+    \item Built GitOps CI/CD workflows with ArgoCD and Helm for auditable, declarative, and repeatable deployments.
+    \item Integrated HashiCorp Vault and External Secrets Operator for secrets management and automated rotation.
+    \item Configured NVIDIA GPU Operator and deployed containerized LLM inference workloads using Ollama.
+    \item Enforced cluster security with Kyverno and network policies; integrated SAST and SCA scanning into CI/CD pipelines.
+    \item Built observability with OpenTelemetry and Grafana stack, including log aggregation and alerting for audit trails.
 \end{itemize}
 
-\vspace{0.05in}
+\vspace{0.02in}
+\textbf{Slangit} \hfill \textit{DevOps Engineer (Part-time)} \\
+\textit{Nov 2025 -- Present}
+\begin{itemize}[leftmargin=*, itemsep=0.08em, topsep=0pt]
+    \item Configured Microsoft Azure cloud infrastructure with secure VNets, resource groups, and identity governance.
+    \item Deployed and operated enterprise container workloads on Red Hat OpenShift, managing RBAC, ingress, and operators.
+    \item Automated cloud environment provisioning across GCP and Azure utilizing modular Azure Bicep configurations.
+\end{itemize}
+
+\vspace{0.02in}
 \href{https://dsinnovators.com}{\textbf{Dynamic Solution Innovators Ltd.}}\quad\href{https://dsinnovators.com}{\raisebox{-0.4em}{\includegraphics[height=1.8em]{dsi.png}}}
 \hfill \textit{Junior DevOps Engineer} \\
 \textit{Sep 2023 -- Aug 2025}
-\begin{itemize}[leftmargin=*, itemsep=0.2em, topsep=0pt]
+\begin{itemize}[leftmargin=*, itemsep=0.08em, topsep=0pt]
     \item Built CI/CD pipelines using Jenkins, ArgoCD, and GitHub Actions, automating with Bash and Python.
-    \item Deployed microservices on Kubernetes with GitOps and blue-green/canary deployments.
-    \item Managed AWS and DigitalOcean infrastructure using Terraform and Ansible for configuration.
-    \item Introduced observability stack (Prometheus, Grafana, OpenTelemetry), improving visibility across teams.
+    \item Deployed microservices on Kubernetes with GitOps and blue-green/canary deployment strategies.
+    \item Managed AWS and DigitalOcean infrastructure using Terraform and Ansible for automated configuration.
+    \item Introduced observability stack (Prometheus, Grafana, OpenTelemetry), improving incident visibility across teams.
 \end{itemize}
 
-\vspace{0.05in}
+\vspace{0.02in}
 \href{https://bjitacademy.com}{\textbf{BJIT Academy Ltd.}}\quad\href{https://bjitacademy.com}{\raisebox{-0.4em}{\includegraphics[height=1.8em]{bjitacademy.png}}}
 \hfill \textit{Trainee DevOps \& Cloud Engineer} \\
 \textit{Apr 2023 -- Jul 2023}
 
 %------------------------------------------------------------
+\vspace{-4pt}
 \section*{Skills}
 \hrule
-\textbf{Infrastructure \& Cloud:} Linux, AWS, GCP, Docker, Kubernetes, OpenShift, Karpenter, KEDA \\
-\textbf{IaC \& Automation:} Terraform, Ansible, Bash, Python \\
+\vspace{2pt}
+\textbf{Infrastructure \& Cloud:} Linux, AWS, Azure, GCP, Docker, Kubernetes, OpenShift, Karpenter, KEDA \\
+\textbf{IaC \& Automation:} Terraform, Bicep, Ansible, Bash, Python \\
 \textbf{CI/CD \& DevOps Tools:} Jenkins, ArgoCD, Git, GitHub Actions, Helm, Kustomize \\
-\textbf{Observability:} Prometheus, Grafana, Fluent Bit, CloudWatch, OpenTelemetry \\
+\textbf{Observability:} Prometheus, Grafana, CloudWatch, OpenTelemetry \\
 \textbf{Security:} HashiCorp Vault, External Secrets, Kyverno, Trivy, RBAC, Network Policies \\
 \textbf{Databases:} MySQL, PostgreSQL, Oracle, MSSQL, Redis \\
 \textbf{Programming \& Testing:} Java, JavaScript, Jest, K6 \\
-\textbf{AI Platform Tools:} vLLM, NVIDIA GPU Operator, MinIO
+\textbf{AI Platform Tools:} Ollama, NVIDIA GPU Operator, MinIO
 
 %------------------------------------------------------------
+\vspace{-4pt}
 \section*{Certifications}
 \hrule
+\vspace{2pt}
 \textbf{\underline{Certified Kubernetes Administrator}} - The Linux Foundation \hfill{Sep 2024 -- Sep 2026}
 
 %------------------------------------------------------------
+\vspace{-4pt}
 \section*{Education}
 \hrule
+\vspace{2pt}
 \href{https://ku.ac.bd/discipline/cse}{\textbf{Khulna University}}\quad\href{https://ku.ac.bd/discipline/cse}{\raisebox{-0.4em}{\includegraphics[height=1.8em]{ku.png}}}
 \hfill \textit{B.Sc. in Computer Science and Engineering}\\
 \textit{Jan 2018 -- Feb 2023}
