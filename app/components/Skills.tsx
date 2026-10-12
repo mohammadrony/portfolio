@@ -20,79 +20,74 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    name: "Infrastructure & Cloud",
+    name: "Cloud & Infrastructure",
     icon: "☁️",
     color: "from-orange-500 to-red-500",
     skills: [
-      { name: "Kubernetes (EKS, AKS)", level: "advanced", category: "Infrastructure" },
-      { name: "AWS (EKS, VPC, RDS)", level: "advanced", category: "Infrastructure" },
-      { name: "Microsoft Azure (AKS, APIM)", level: "advanced", category: "Infrastructure" },
-      { name: "Red Hat OpenShift", level: "intermediate", category: "Infrastructure" },
-      { name: "Google Cloud Platform (GCP)", level: "intermediate", category: "Infrastructure" },
-      { name: "Linux & Docker", level: "advanced", category: "Infrastructure" },
+      { name: "Kubernetes", level: "advanced", category: "Infrastructure" },
+      { name: "AWS", level: "advanced", category: "Infrastructure" },
+      { name: "Azure", level: "intermediate", category: "Infrastructure" },
+      { name: "GCP", level: "intermediate", category: "Infrastructure" },
+      { name: "Docker", level: "advanced", category: "Infrastructure" },
+      { name: "Linux", level: "advanced", category: "Infrastructure" },
     ]
   },
   {
-    name: "IaC & GitOps Delivery",
+    name: "IaC & Automation",
     icon: "⚙️",
     color: "from-purple-500 to-pink-500",
     skills: [
       { name: "Terraform", level: "advanced", category: "Automation" },
-      { name: "Azure Bicep", level: "advanced", category: "Automation" },
-      { name: "ArgoCD & App-of-Apps", level: "advanced", category: "DevOps" },
-      { name: "Kargo & Argo Workflows", level: "intermediate", category: "DevOps" },
-      { name: "Helm & Kustomize", level: "advanced", category: "DevOps" },
-      { name: "GitHub Actions & OIDC", level: "advanced", category: "DevOps" },
-      { name: "Ansible & Bash", level: "advanced", category: "Automation" },
+      { name: "Ansible", level: "advanced", category: "Automation" },
+      { name: "Azure Bicep", level: "intermediate", category: "Automation" },
+      { name: "Bash", level: "advanced", category: "Automation" },
+      { name: "Python", level: "intermediate", category: "Automation" },
     ]
   },
   {
-    name: "DevSecOps & Zero-Trust",
+    name: "CI/CD & GitOps",
+    icon: "🔄",
+    color: "from-blue-500 to-cyan-500",
+    skills: [
+      { name: "ArgoCD", level: "advanced", category: "DevOps" },
+      { name: "GitHub Actions", level: "advanced", category: "DevOps" },
+      { name: "Jenkins", level: "advanced", category: "DevOps" },
+      { name: "Helm", level: "advanced", category: "DevOps" },
+      { name: "Git", level: "advanced", category: "DevOps" },
+    ]
+  },
+  {
+    name: "Security & Zero-Trust",
     icon: "🔒",
     color: "from-red-500 to-rose-500",
     skills: [
-      { name: "HashiCorp Vault & ESO", level: "advanced", category: "Security" },
-      { name: "Kyverno Admission Policies", level: "intermediate", category: "Security" },
-      { name: "Cosign & SBOM Signing", level: "intermediate", category: "Security" },
-      { name: "DefectDojo Vulnerability Triage", level: "intermediate", category: "Security" },
-      { name: "NetworkPolicies & WireGuard", level: "advanced", category: "Security" },
-      { name: "SOC 2 & ISO 27001", level: "intermediate", category: "Security" },
+      { name: "HashiCorp Vault", level: "advanced", category: "Security" },
+      { name: "Kyverno", level: "intermediate", category: "Security" },
+      { name: "Cosign", level: "intermediate", category: "Security" },
+      { name: "Network Policies", level: "advanced", category: "Security" },
     ]
   },
   {
-    name: "AI Infrastructure & Scaling",
-    icon: "🧠",
-    color: "from-indigo-500 to-purple-500",
-    skills: [
-      { name: "NVIDIA GPU Operator (Time-Slicing)", level: "intermediate", category: "AI" },
-      { name: "Karpenter Node Autoscaling", level: "advanced", category: "Scaling" },
-      { name: "KEDA Event-Driven Scaling", level: "advanced", category: "Scaling" },
-      { name: "Ollama LLM Serving", level: "intermediate", category: "AI" },
-      { name: "LiteLLM & MinIO Object Storage", level: "intermediate", category: "AI" },
-    ]
-  },
-  {
-    name: "Observability & Performance",
+    name: "Observability",
     icon: "📊",
     color: "from-green-500 to-emerald-500",
     skills: [
-      { name: "Grafana LGTM Stack", level: "advanced", category: "Observability" },
-      { name: "Prometheus & Alertmanager", level: "advanced", category: "Observability" },
-      { name: "Fluent Bit & CloudWatch", level: "intermediate", category: "Observability" },
-      { name: "Azure Log Analytics (DCE/DCR)", level: "intermediate", category: "Observability" },
-      { name: "k6 Load Testing", level: "intermediate", category: "Testing" },
+      { name: "Prometheus", level: "advanced", category: "Observability" },
+      { name: "Grafana", level: "advanced", category: "Observability" },
+      { name: "OpenTelemetry", level: "intermediate", category: "Observability" },
+      { name: "CloudWatch", level: "intermediate", category: "Observability" },
     ]
   },
   {
-    name: "Databases & Runtimes",
+    name: "Databases & Tools",
     icon: "🗄️",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-indigo-500 to-purple-500",
     skills: [
       { name: "PostgreSQL", level: "advanced", category: "Databases" },
-      { name: "Redis", level: "advanced", category: "Databases" },
       { name: "MySQL", level: "advanced", category: "Databases" },
-      { name: "Python", level: "intermediate", category: "Languages" },
-      { name: "Go", level: "intermediate", category: "Languages" },
+      { name: "Redis", level: "intermediate", category: "Databases" },
+      { name: "Ollama", level: "intermediate", category: "Tools" },
+      { name: "k6", level: "intermediate", category: "Tools" },
     ]
   },
 ];

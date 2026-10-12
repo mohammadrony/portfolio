@@ -66,7 +66,7 @@ export default function Hero() {
           transition={{ delay: 0.6 }}
           className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed"
         >
-          Architecting resilient multi-cloud platforms, auditable GitOps delivery, and AI workload infrastructure.
+          Bridging code, clouds, and creativity.
         </motion.p>
 
         <motion.div

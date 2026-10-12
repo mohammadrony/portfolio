@@ -28,19 +28,19 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Document Processing Platform",
-    description: "GPU-enabled Kubernetes cluster on AWS for document extraction workloads, using Karpenter for node autoscaling and in-cluster CI/CD.",
-    tech: ["AWS EKS", "Karpenter", "KEDA", "NVIDIA GPUs", "GitHub Actions"],
+    title: "GPU Compute Platform",
+    description: "GPU-enabled Kubernetes cluster on AWS using Karpenter for dynamic node provisioning, KEDA event scaling, and in-cluster CI/CD.",
+    tech: ["AWS EKS", "NVIDIA GPUs", "Karpenter", "KEDA", "GitHub Actions"],
     category: "AI & Kubernetes",
-    icon: "📄",
+    icon: "⚡",
     github: "https://github.com/mohammadrony",
     color: "from-emerald-500 to-teal-600"
   },
   {
     id: 3,
-    title: "Azure Kubernetes Migration",
-    description: "Migrated legacy virtual machine services to AKS with modular Bicep templates, automated environment promotion, and secret management.",
-    tech: ["Azure AKS", "Bicep", "ArgoCD", "Key Vault", "KEDA"],
+    title: "Cloud Migration & GitOps",
+    description: "Cloud migration from virtual machines to Azure Kubernetes Service with modular Bicep templates, automated promotion, and secret management.",
+    tech: ["Azure AKS", "Azure Bicep", "ArgoCD", "Key Vault", "KEDA"],
     category: "Cloud Migration & IaC",
     icon: "☁️",
     github: "https://github.com/mohammadrony",
@@ -48,11 +48,11 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: "Financial Integration Gateway",
-    description: "Multi-client API gateway using Azure APIM and Container Apps with static egress allowlisting and automated health checks.",
+    title: "Multi-Client API Gateway",
+    description: "High-concurrency API gateway and container platform on Azure with static egress routing and automated health check rollbacks.",
     tech: ["Azure APIM", "Container Apps", "Terraform", "OIDC", "k6"],
-    category: "API & Container Apps",
-    icon: "💳",
+    category: "API & Containers",
+    icon: "🌐",
     github: "https://github.com/mohammadrony",
     color: "from-purple-600 to-pink-600"
   }

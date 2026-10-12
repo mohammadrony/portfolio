@@ -18,32 +18,32 @@ const journeyItems: JourneyItem[] = [
   {
     id: 1,
     title: "Professional",
-    role: "DevOps Engineer",
+    role: "DevOps & QA Engineer",
     company: "Dviz Technologies Inc.",
     companyUrl: "https://dviz.tech",
     period: "Nov 2025 - Present",
     icon: "💼",
     highlights: [
-      "Architected multi-region AWS EKS with active/standby DR, Terraform, and ArgoCD App-of-Apps.",
-      "Built automated CI/CD pipelines with SAST/DAST, Cosign container signing, and DefectDojo triage.",
-      "Configured NVIDIA GPU Operator with time-slicing, Karpenter, and KEDA for AI/OCR workloads.",
-      "Automated SOC 2 Type II and ISO 27001 compliance evidence collection with Drata.",
-      "Deployed Grafana LGTM observability, WireGuard VPN private access, and Kyverno policies."
+      "Multi-region AWS EKS with DR and ArgoCD GitOps",
+      "Automated CI/CD with SAST/DAST and Cosign image signing",
+      "Karpenter node autoscaling and GPU AI workloads with Ollama",
+      "Vault secrets management, Kyverno policies, and WireGuard VPN",
+      "Grafana LGTM observability and SOC 2 / ISO 27001 readiness"
     ]
   },
   {
     id: 2,
     title: "Professional",
-    role: "DevOps Engineer (Part-time)",
+    role: "DevOps & QA Engineer (Part-time)",
     company: "Slangit",
     companyUrl: "https://slangit.com",
     period: "Nov 2025 - Present",
     icon: "💼",
     highlights: [
-      "Architected Microsoft Azure cloud infrastructure with secure VNets and identity governance.",
-      "Automated infrastructure provisioning utilizing modular Azure Bicep and Terraform.",
-      "Operated enterprise container workloads on Red Hat OpenShift, managing RBAC and ingress.",
-      "Established multi-cluster observability, health monitoring, and operational runbooks."
+      "Microsoft Azure infrastructure with modular Bicep",
+      "Enterprise container workloads on Red Hat OpenShift",
+      "Multi-cluster networking, RBAC, and health monitoring",
+      "Automated testing pipelines and QA quality gates"
     ]
   },
   {
