@@ -45,11 +45,9 @@ export default function Hero() {
         >
           <TypeAnimation
             sequence={[
-              'DevOps & Platform Engineer',
+              'DevOps Engineer',
               2000,
-              'Multi-Cloud & Kubernetes Architect',
-              2000,
-              'GitOps & Zero-Trust Specialist',
+              'Platform & Cloud Architect',
               2000,
               'AI Infrastructure Engineer',
               2000,
