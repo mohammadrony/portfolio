@@ -18,7 +18,7 @@ const journeyItems: JourneyItem[] = [
   {
     id: 1,
     title: "Professional",
-    role: "DevOps & QA Engineer",
+    role: "DevOps Engineer",
     company: "Dviz Technologies Inc.",
     companyUrl: "https://dviz.tech",
     period: "Nov 2025 - Present",
@@ -34,9 +34,9 @@ const journeyItems: JourneyItem[] = [
   {
     id: 2,
     title: "Professional",
-    role: "DevOps & QA Engineer (Part-time)",
-    company: "Slangit",
-    companyUrl: "https://slangit.com",
+    role: "DevOps Engineer (Part-time)",
+    company: "Slangit Technologies FZCO.",
+    companyUrl: "https://slangit.ai",
     period: "Nov 2025 - Present",
     icon: "💼",
     highlights: [
