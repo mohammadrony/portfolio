@@ -28,8 +28,7 @@ export default function Certificates() {
                 <h3 className="text-2xl font-bold text-white mb-3">
                   Certified Kubernetes Administrator
                 </h3>
-                <p className="text-green-100 mb-4 text-lg">The Linux Foundation</p>
-                <p className="text-white font-semibold text-lg">2024 - 2026</p>
+                <p className="text-green-100 text-lg">The Linux Foundation</p>
               </div>
             </div>
           </ScrollReveal>
