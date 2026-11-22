@@ -29,7 +29,7 @@ export default function Certificates() {
                   Certified Kubernetes Administrator
                 </h3>
                 <p className="text-green-100 mb-4 text-lg">The Linux Foundation</p>
-                <p className="text-white font-semibold text-lg">Sep 2024 - Sep 2026</p>
+                <p className="text-white font-semibold text-lg">2024 - 2026</p>
               </div>
             </div>
           </ScrollReveal>

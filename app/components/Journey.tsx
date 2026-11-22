@@ -58,7 +58,7 @@ const journeyItems: JourneyItem[] = [
       "Built CI/CD pipelines with Jenkins, ArgoCD, GitHub Actions",
       "Deployed microservices on Kubernetes with GitOps",
       "Implemented observability with Prometheus & Grafana",
-      "Managed AWS & DigitalOcean with Terraform & Ansible",
+      "Managed AWS & DigitalOcean infrastructure and Linux servers",
       "Collaborated with dev & QA teams on automation",
       "Administered databases: PostgreSQL, MySQL, Oracle, MSSQL"
     ]
